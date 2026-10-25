@@ -1,0 +1,13 @@
+# Screenshots to capture yourself (do not fabricate)
+- [ ] `docker compose ps` all services Up
+- [ ] NameNode UI http://localhost:50070 -> Datanodes tab showing 3 live DataNodes
+- [ ] `hdfs dfsadmin -report`; `hdfs dfs -ls -R /retail`; `hdfs fsck ... -blocks -locations` (replication 3)
+- [ ] Checksum MATCH from `verify_hdfs.sh`
+- [ ] `outputs/` cleaning report (`data/cleaning_report.json`)
+- [ ] beeline: `SHOW PARTITIONS retail_dw.sales_partitioned;` and a revenue query
+- [ ] Hive `EXPLAIN` / Spark `partition_pruning_plan.txt`
+- [ ] Spark run: `outputs/spark_run_info.json` (mode `hive`, metastore URI thrift://hive-metastore:9083, default_fs hdfs://namenode:8020)
+- [ ] `validate_outputs --require-hive` all PASS
+- [ ] Charts in `outputs/charts/`
+- [ ] GitHub: Contributors graph, PR list with reviews, `git log --oneline --all --graph`
+- [ ] Each screenshot shows date/time and your terminal prompt

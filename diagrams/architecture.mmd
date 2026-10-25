@@ -1,0 +1,17 @@
+flowchart TD
+    A[Raw retail CSV<br/>synthetic, seeded] --> B[Python cleaning + validation<br/>clean_data.py]
+    B --> C[data/retail_sales.csv<br/>+ rejected_rows.csv + report]
+    C --> D[prepare_partitions.py<br/>region=/sales_year=/sales_month=/]
+    C --> E
+    D --> E[(HDFS<br/>1 NameNode + 3 DataNodes<br/>/retail/staging, /retail/warehouse/sales)]
+    E --> F[Hive external tables<br/>staging_sales + sales_partitioned]
+    G[(Hive Metastore<br/>PostgreSQL)] <--> F
+    F --> H[HiveServer2 / beeline<br/>MSCK REPAIR + SQL + validation]
+    G <--> I[Spark SQL with Hive support<br/>spark-client container]
+    E --> I
+    I --> J[CSV reports]
+    J --> K[Matplotlib charts + insights]
+    H --> L[hive_totals.csv]
+    J --> M{validate_outputs.py}
+    L --> M
+    C --> M

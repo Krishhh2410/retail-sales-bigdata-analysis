@@ -1,0 +1,82 @@
+0: jdbc:hive2://localhost:10000> -- Member 2: sanity checks on the warehouse. Co 
+mpare with outputs from the Python validator.
+0: jdbc:hive2://localhost:10000> USE retail_dw;
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- V1 staging vs partitioned totals must match  
+(same rows, two layouts)
+0: jdbc:hive2://localhost:10000> SELECT 'staging' AS src, COUNT(*) AS row_count, 
+ SUM(quantity) AS total_units, ROUND(SUM(sales_amount),2) AS total_revenue FROM  
+staging_sales
+. . . . . . . . . . . . . . . .> UNION ALL
+. . . . . . . . . . . . . . . .> SELECT 'partitioned', COUNT(*), SUM(quantity),  
+ROUND(SUM(sales_amount),2) FROM sales_partitioned;
++--------------+----------------+------------------+--------------------+
+|   _u1.src    | _u1.row_count  | _u1.total_units  | _u1.total_revenue  |
++--------------+----------------+------------------+--------------------+
+| staging      | 49540          | 111486           | 13229178.90        |
+| partitioned  | 49540          | 111486           | 13229178.90        |
++--------------+----------------+------------------+--------------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- V2 no duplicate transaction ids (expect 0 ro 
+ws)
+0: jdbc:hive2://localhost:10000> SELECT transaction_id, COUNT(*) AS c FROM sales 
+_partitioned GROUP BY transaction_id HAVING COUNT(*) > 1 LIMIT 5;
++-----------------+----+
+| transaction_id  | c  |
++-----------------+----+
++-----------------+----+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- V3 no NULLs introduced by a schema/delimiter 
+ mismatch (expect all zeros)
+0: jdbc:hive2://localhost:10000> SELECT SUM(CASE WHEN sale_date IS NULL THEN 1 E 
+LSE 0 END) AS null_dates,
+. . . . . . . . . . . . . . . .>        SUM(CASE WHEN quantity IS NULL THEN 1 EL 
+SE 0 END) AS null_qty,
+. . . . . . . . . . . . . . . .>        SUM(CASE WHEN unit_price IS NULL THEN 1  
+ELSE 0 END) AS null_price,
+. . . . . . . . . . . . . . . .>        SUM(CASE WHEN sales_amount IS NULL THEN  
+1 ELSE 0 END) AS null_amount
+. . . . . . . . . . . . . . . .> FROM sales_partitioned;
++-------------+-----------+-------------+--------------+
+| null_dates  | null_qty  | null_price  | null_amount  |
++-------------+-----------+-------------+--------------+
+| 0           | 0         | 0           | 0            |
++-------------+-----------+-------------+--------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- V4 sales_amount = quantity * unit_price (exp 
+ect 0)
+0: jdbc:hive2://localhost:10000> SELECT COUNT(*) AS bad_amounts FROM sales_parti 
+tioned
+. . . . . . . . . . . . . . . .> WHERE ABS(sales_amount - quantity * unit_price) 
+ > 0.01;
++--------------+
+| bad_amounts  |
++--------------+
+| 0            |
++--------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- V5 rows per partition (spot check)
+0: jdbc:hive2://localhost:10000> SELECT region, sales_year, sales_month, COUNT(* 
+) AS rows_in_partition
+. . . . . . . . . . . . . . . .> FROM sales_partitioned GROUP BY region, sales_y 
+ear, sales_month
+. . . . . . . . . . . . . . . .> ORDER BY region, sales_year, sales_month LIMIT  
+12;
++----------+-------------+--------------+--------------------+
+|  region  | sales_year  | sales_month  | rows_in_partition  |
++----------+-------------+--------------+--------------------+
+| Central  | 2024        | 1            | 361                |
+| Central  | 2024        | 2            | 291                |
+| Central  | 2024        | 3            | 390                |
+| Central  | 2024        | 4            | 400                |
+| Central  | 2024        | 5            | 422                |
+| Central  | 2024        | 6            | 451                |
+| Central  | 2024        | 7            | 400                |
+| Central  | 2024        | 8            | 437                |
+| Central  | 2024        | 9            | 391                |
+| Central  | 2024        | 10           | 450                |
+| Central  | 2024        | 11           | 527                |
+| Central  | 2024        | 12           | 659                |
++----------+-------------+--------------+--------------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> 

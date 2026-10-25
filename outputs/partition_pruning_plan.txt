@@ -1,0 +1,39 @@
+Query: SELECT SUM(sales_amount) FROM retail_dw.sales_partitioned WHERE region = 'West' AND sales_year = 2025 AND sales_month BETWEEN 6 AND 8
+Result: 366991.00
+Registered partitions: 120; partitions containing the filtered data: 3
+
+== Physical Plan ==
+AdaptiveSparkPlan (5)
++- HashAggregate (4)
+   +- Exchange (3)
+      +- HashAggregate (2)
+         +- Scan hive spark_catalog.retail_dw.sales_partitioned (1)
+
+
+(1) Scan hive spark_catalog.retail_dw.sales_partitioned
+Output [1]: [sales_amount#418]
+Arguments: [sales_amount#418], HiveTableRelation [`spark_catalog`.`retail_dw`.`sales_partitioned`, org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, Data Cols: [transaction_id#411, sale_date#412, store_id#413, product_id#414, category#415, quantity#416, uni..., Partition Cols: [region#419, sales_year#420, sales_month#421], Pruned Partitions: [(region=West, sales_year=2025, sales_month=6), (region=West, sales_year=2025, sales_month=7), (r...], [isnotnull(region#419), isnotnull(sales_year#420), isnotnull(sales_month#421), (region#419 = West), (sales_year#420 = 2025), (sales_month#421 >= 6), (sales_month#421 <= 8)]
+
+(2) HashAggregate
+Input [1]: [sales_amount#418]
+Keys: []
+Functions [1]: [partial_sum(sales_amount#418)]
+Aggregate Attributes [2]: [sum#424, isEmpty#425]
+Results [2]: [sum#426, isEmpty#427]
+
+(3) Exchange
+Input [2]: [sum#426, isEmpty#427]
+Arguments: SinglePartition, ENSURE_REQUIREMENTS, [plan_id=692]
+
+(4) HashAggregate
+Input [2]: [sum#426, isEmpty#427]
+Keys: []
+Functions [1]: [sum(sales_amount#418)]
+Aggregate Attributes [1]: [sum(sales_amount#418)#422]
+Results [1]: [sum(sales_amount#418)#422 AS sum(sales_amount)#423]
+
+(5) AdaptiveSparkPlan
+Output [1]: [sum(sales_amount)#423]
+Arguments: isFinalPlan=false
+
+

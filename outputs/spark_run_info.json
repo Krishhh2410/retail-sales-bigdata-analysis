@@ -1,0 +1,10 @@
+{
+  "mode": "hive",
+  "spark_version": "3.5.3",
+  "source_table": "retail_dw.sales_partitioned",
+  "catalog": "hive",
+  "master": "local[*]",
+  "metastore_uris": "thrift://hive-metastore:9083",
+  "default_fs": "hdfs://namenode:8020",
+  "finished_utc": "2026-10-23T07:25:10+00:00"
+}

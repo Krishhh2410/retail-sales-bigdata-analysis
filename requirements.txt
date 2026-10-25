@@ -1,0 +1,4 @@
+pandas>=2.0
+matplotlib>=3.7
+pyspark==3.5.3   # needs Java 8/11/17/21 on PATH
+pytest>=8.0

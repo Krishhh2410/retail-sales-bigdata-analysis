@@ -1,0 +1,18 @@
+{
+  "mode": "cluster",
+  "seconds": {
+    "generate data": 0.6,
+    "clean + validate data": 1.1,
+    "prepare partition tree": 0.9,
+    "start docker cluster": 0.3,
+    "wait for NameNode + 3 DataNodes": 2.0,
+    "upload to HDFS": 17.0,
+    "verify HDFS": 12.6,
+    "wait for HiveServer2": 2.7,
+    "Hive DDL, partitions, validation": 53.3,
+    "Spark analytics (Hive on HDFS)": 31.9,
+    "charts": 1.6,
+    "business insights": 0.5,
+    "final validation": 0.6
+  }
+}

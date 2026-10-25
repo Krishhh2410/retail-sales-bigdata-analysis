@@ -1,0 +1,443 @@
+0: jdbc:hive2://localhost:10000> -- Member 2: Hive analysis queries (HiveQL; als 
+o valid Spark SQL).
+0: jdbc:hive2://localhost:10000> USE retail_dw;
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q1 total revenue
+0: jdbc:hive2://localhost:10000> SELECT ROUND(SUM(sales_amount), 2) AS total_rev 
+enue FROM sales_partitioned;
++----------------+
+| total_revenue  |
++----------------+
+| 13229178.90    |
++----------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q2 total units sold
+0: jdbc:hive2://localhost:10000> SELECT SUM(quantity) AS total_units FROM sales_ 
+partitioned;
++--------------+
+| total_units  |
++--------------+
+| 111486       |
++--------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q3 revenue by category
+0: jdbc:hive2://localhost:10000> SELECT category, SUM(quantity) AS total_units,  
+ROUND(SUM(sales_amount), 2) AS total_revenue
+. . . . . . . . . . . . . . . .> FROM sales_partitioned GROUP BY category ORDER  
+BY total_revenue DESC;
++-----------------+--------------+----------------+
+|    category     | total_units  | total_revenue  |
++-----------------+--------------+----------------+
+| Electronics     | 14677        | 6751807.71     |
+| Sports          | 14521        | 2640699.76     |
+| Home & Kitchen  | 15818        | 1563397.39     |
+| Clothing        | 16818        | 1104767.11     |
+| Beauty          | 18716        | 1048105.00     |
+| Grocery         | 30936        | 120401.93      |
++-----------------+--------------+----------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q4 revenue by region (reads only partition m 
+etadata for the grouping column)
+0: jdbc:hive2://localhost:10000> SELECT region, SUM(quantity) AS total_units, RO 
+UND(SUM(sales_amount), 2) AS total_revenue
+. . . . . . . . . . . . . . . .> FROM sales_partitioned GROUP BY region ORDER BY 
+ total_revenue DESC;
++----------+--------------+----------------+
+|  region  | total_units  | total_revenue  |
++----------+--------------+----------------+
+| West     | 24459        | 2966714.77     |
+| Central  | 24785        | 2948633.77     |
+| East     | 22767        | 2647925.19     |
+| South    | 21154        | 2459783.03     |
+| North    | 18321        | 2206122.14     |
++----------+--------------+----------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q5 top 10 stores
+0: jdbc:hive2://localhost:10000> SELECT store_id, region, ROUND(SUM(sales_amount 
+), 2) AS total_revenue, SUM(quantity) AS total_units
+. . . . . . . . . . . . . . . .> FROM sales_partitioned GROUP BY store_id, regio 
+n
+. . . . . . . . . . . . . . . .> ORDER BY total_revenue DESC, store_id ASC LIMIT 
+ 10;
++-----------+----------+----------------+--------------+
+| store_id  |  region  | total_revenue  | total_units  |
++-----------+----------+----------------+--------------+
+| S19       | Central  | 963532.78      | 8286         |
+| S12       | East     | 934913.28      | 7917         |
+| S16       | West     | 824664.37      | 7001         |
+| S13       | West     | 811069.73      | 6533         |
+| S14       | West     | 804492.85      | 6460         |
+| S20       | Central  | 803669.71      | 6655         |
+| S07       | South    | 788490.66      | 6859         |
+| S18       | Central  | 660259.52      | 5398         |
+| S09       | East     | 626854.17      | 5406         |
+| S02       | North    | 621811.33      | 5110         |
++-----------+----------+----------------+--------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q6 top 10 products
+0: jdbc:hive2://localhost:10000> SELECT product_id, category, SUM(quantity) AS t 
+otal_units, ROUND(SUM(sales_amount), 2) AS total_revenue
+. . . . . . . . . . . . . . . .> FROM sales_partitioned GROUP BY product_id, cat 
+egory
+. . . . . . . . . . . . . . . .> ORDER BY total_revenue DESC, product_id ASC LIM 
+IT 10;
++-------------+-----------------+--------------+----------------+
+| product_id  |    category     | total_units  | total_revenue  |
++-------------+-----------------+--------------+----------------+
+| P007        | Electronics     | 2155         | 1710411.05     |
+| P005        | Electronics     | 2160         | 1430258.40     |
+| P006        | Electronics     | 2050         | 1248797.40     |
+| P001        | Electronics     | 2112         | 1222777.61     |
+| P003        | Electronics     | 2115         | 566594.92      |
+| P037        | Sports          | 2081         | 512952.55      |
+| P039        | Sports          | 2004         | 511818.33      |
+| P025        | Home & Kitchen  | 2140         | 505207.76      |
+| P004        | Electronics     | 2051         | 459534.68      |
+| P041        | Sports          | 2118         | 446883.79      |
++-------------+-----------------+--------------+----------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q7 monthly revenue
+0: jdbc:hive2://localhost:10000> SELECT sales_year, sales_month, SUM(quantity) A 
+S total_units, ROUND(SUM(sales_amount), 2) AS total_revenue
+. . . . . . . . . . . . . . . .> FROM sales_partitioned GROUP BY sales_year, sal 
+es_month ORDER BY sales_year, sales_month;
++-------------+--------------+--------------+----------------+
+| sales_year  | sales_month  | total_units  | total_revenue  |
++-------------+--------------+--------------+----------------+
+| 2024        | 1            | 3746         | 444722.36      |
+| 2024        | 2            | 3302         | 359140.32      |
+| 2024        | 3            | 3995         | 442223.45      |
+| 2024        | 4            | 4104         | 451668.97      |
+| 2024        | 5            | 4458         | 460031.57      |
+| 2024        | 6            | 4333         | 494495.31      |
+| 2024        | 7            | 4102         | 496262.29      |
+| 2024        | 8            | 4157         | 486637.66      |
+| 2024        | 9            | 4151         | 477778.64      |
+| 2024        | 10           | 4607         | 556072.34      |
+| 2024        | 11           | 5334         | 745982.04      |
+| 2024        | 12           | 6604         | 858253.49      |
+| 2025        | 1            | 4299         | 501430.75      |
+| 2025        | 2            | 3353         | 374804.77      |
+| 2025        | 3            | 4353         | 488463.78      |
+| 2025        | 4            | 4471         | 490224.95      |
+| 2025        | 5            | 4875         | 572123.79      |
+| 2025        | 6            | 4794         | 582966.85      |
+| 2025        | 7            | 4702         | 573137.75      |
+| 2025        | 8            | 4910         | 558279.27      |
+| 2025        | 9            | 4589         | 526724.85      |
+| 2025        | 10           | 5201         | 581762.24      |
+| 2025        | 11           | 5795         | 794218.22      |
+| 2025        | 12           | 7251         | 911773.24      |
++-------------+--------------+--------------+----------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q8 yearly revenue
+0: jdbc:hive2://localhost:10000> SELECT sales_year, SUM(quantity) AS total_units 
+, ROUND(SUM(sales_amount), 2) AS total_revenue
+. . . . . . . . . . . . . . . .> FROM sales_partitioned GROUP BY sales_year ORDE 
+R BY sales_year;
++-------------+--------------+----------------+
+| sales_year  | total_units  | total_revenue  |
++-------------+--------------+----------------+
+| 2024        | 52893        | 6273268.44     |
+| 2025        | 58593        | 6955910.46     |
++-------------+--------------+----------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q9 seasonal comparison (season from calendar 
+ month; Dec-Feb counted as Winter of the same year)
+0: jdbc:hive2://localhost:10000> SELECT sales_year,
+. . . . . . . . . . . . . . . .>        CASE WHEN sales_month IN (12,1,2) THEN ' 
+Winter'
+. . . . . . . . . . . . . . . .>             WHEN sales_month IN (3,4,5)  THEN ' 
+Spring'
+. . . . . . . . . . . . . . . .>             WHEN sales_month IN (6,7,8)  THEN ' 
+Summer'
+. . . . . . . . . . . . . . . .>             ELSE 'Autumn' END AS season,
+. . . . . . . . . . . . . . . .>        SUM(quantity) AS total_units, ROUND(SUM( 
+sales_amount), 2) AS total_revenue
+. . . . . . . . . . . . . . . .> FROM sales_partitioned GROUP BY sales_year,
+. . . . . . . . . . . . . . . .>        CASE WHEN sales_month IN (12,1,2) THEN ' 
+Winter'
+. . . . . . . . . . . . . . . .>             WHEN sales_month IN (3,4,5)  THEN ' 
+Spring'
+. . . . . . . . . . . . . . . .>             WHEN sales_month IN (6,7,8)  THEN ' 
+Summer'
+. . . . . . . . . . . . . . . .>             ELSE 'Autumn' END
+. . . . . . . . . . . . . . . .> ORDER BY sales_year, season;
++-------------+---------+--------------+----------------+
+| sales_year  | season  | total_units  | total_revenue  |
++-------------+---------+--------------+----------------+
+| 2024        | Autumn  | 14092        | 1779833.02     |
+| 2024        | Spring  | 12557        | 1353923.99     |
+| 2024        | Summer  | 12592        | 1477395.26     |
+| 2024        | Winter  | 13652        | 1662116.17     |
+| 2025        | Autumn  | 15585        | 1902705.31     |
+| 2025        | Spring  | 13699        | 1550812.52     |
+| 2025        | Summer  | 14406        | 1714383.87     |
+| 2025        | Winter  | 14903        | 1788008.76     |
++-------------+---------+--------------+----------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Q10 revenue for one region and a date range  
+-> PARTITION PRUNING
+0: jdbc:hive2://localhost:10000> -- Only region=West/sales_year=2025/sales_month 
+ 6..8 directories are read.
+0: jdbc:hive2://localhost:10000> SELECT ROUND(SUM(sales_amount), 2) AS west_summ 
+er_2025_revenue
+. . . . . . . . . . . . . . . .> FROM sales_partitioned
+. . . . . . . . . . . . . . . .> WHERE region = 'West' AND sales_year = 2025 AND 
+ sales_month BETWEEN 6 AND 8;
++---------------------------+
+| west_summer_2025_revenue  |
++---------------------------+
+| 366991.00                 |
++---------------------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> -- Show the pruning in the plan (look for the p 
+artition filters / "Partition Description" count):
+0: jdbc:hive2://localhost:10000> EXPLAIN EXTENDED
+. . . . . . . . . . . . . . . .> SELECT SUM(sales_amount) FROM sales_partitioned 
+. . . . . . . . . . . . . . . .> WHERE region = 'West' AND sales_year = 2025 AND 
+ sales_month BETWEEN 6 AND 8;
++----------------------------------------------------+
+|                      Explain                       |
++----------------------------------------------------+
+| STAGE DEPENDENCIES:                                |
+|   Stage-1 is a root stage                          |
+|   Stage-0 depends on stages: Stage-1               |
+|                                                    |
+| STAGE PLANS:                                       |
+|   Stage: Stage-1                                   |
+|     Map Reduce                                     |
+|       Map Operator Tree:                           |
+|           TableScan                                |
+|             alias: sales_partitioned               |
+|             Statistics: Num rows: 696 Data size: 78003 Basic stats: COMPLETE Column stats: NONE |
+|             GatherStats: false                     |
+|             Select Operator                        |
+|               expressions: sales_amount (type: decimal(14,2)) |
+|               outputColumnNames: sales_amount      |
+|               Statistics: Num rows: 696 Data size: 78003 Basic stats: COMPLETE Column stats: NONE |
+|               Group By Operator                    |
+|                 aggregations: sum(sales_amount)    |
+|                 mode: hash                         |
+|                 outputColumnNames: _col0           |
+|                 Statistics: Num rows: 1 Data size: 112 Basic stats: COMPLETE Column stats: NONE |
+|                 Reduce Output Operator             |
+|                   null sort order:                 |
+|                   sort order:                      |
+|                   Statistics: Num rows: 1 Data size: 112 Basic stats: COMPLETE Column stats: NONE |
+|                   tag: -1                          |
+|                   value expressions: _col0 (type: decimal(24,2)) |
+|                   auto parallelism: false          |
+|       Path -> Alias:                               |
+|         hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=6 [sales_partitioned] |
+|         hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=7 [sales_partitioned] |
+|         hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=8 [sales_partitioned] |
+|       Path -> Partition:                           |
+|         hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=6  |
+|           Partition                                |
+|             base file name: sales_month=6          |
+|             input format: org.apache.hadoop.mapred.TextInputFormat |
+|             output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|             partition values:                      |
+|               region West                          |
+|               sales_month 6                        |
+|               sales_year 2025                      |
+|             properties:                            |
+|               bucket_count -1                      |
+|               column.name.delimiter ,              |
+|               columns transaction_id,sale_date,store_id,product_id,category,quantity,unit_price,sales_amount |
+|               columns.comments                     |
+|               columns.types string:date:string:string:string:int:decimal(12,2):decimal(14,2) |
+|               field.delim ,                        |
+|               file.inputformat org.apache.hadoop.mapred.TextInputFormat |
+|               file.outputformat org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|               location hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=6 |
+|               name retail_dw.sales_partitioned     |
+|               numFiles 1                           |
+|               partition_columns region/sales_year/sales_month |
+|               partition_columns.types string:int:int |
+|               serialization.ddl struct sales_partitioned { string transaction_id, date sale_date, string store_id, string product_id, string category, i32 quantity, decimal(12,2) unit_price, decimal(14,2) sales_amount} |
+|               serialization.format ,               |
+|               serialization.lib org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|               totalSize 26099                      |
+|               transient_lastDdlTime 1792740235     |
+|             serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|                                                    |
+|               input format: org.apache.hadoop.mapred.TextInputFormat |
+|               output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|               properties:                          |
+|                 EXTERNAL TRUE                      |
+|                 bucket_count -1                    |
+|                 column.name.delimiter ,            |
+|                 columns transaction_id,sale_date,store_id,product_id,category,quantity,unit_price,sales_amount |
+|                 columns.comments                   |
+|                 columns.types string:date:string:string:string:int:decimal(12,2):decimal(14,2) |
+|                 field.delim ,                      |
+|                 file.inputformat org.apache.hadoop.mapred.TextInputFormat |
+|                 file.outputformat org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|                 location hdfs://namenode:8020/retail/warehouse/sales |
+|                 name retail_dw.sales_partitioned   |
+|                 partition_columns region/sales_year/sales_month |
+|                 partition_columns.types string:int:int |
+|                 serialization.ddl struct sales_partitioned { string transaction_id, date sale_date, string store_id, string product_id, string category, i32 quantity, decimal(12,2) unit_price, decimal(14,2) sales_amount} |
+|                 serialization.format ,             |
+|                 serialization.lib org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|                 transient_lastDdlTime 1792740232   |
+|               serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|               name: retail_dw.sales_partitioned    |
+|             name: retail_dw.sales_partitioned      |
+|         hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=7  |
+|           Partition                                |
+|             base file name: sales_month=7          |
+|             input format: org.apache.hadoop.mapred.TextInputFormat |
+|             output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|             partition values:                      |
+|               region West                          |
+|               sales_month 7                        |
+|               sales_year 2025                      |
+|             properties:                            |
+|               bucket_count -1                      |
+|               column.name.delimiter ,              |
+|               columns transaction_id,sale_date,store_id,product_id,category,quantity,unit_price,sales_amount |
+|               columns.comments                     |
++----------------------------------------------------+
+|                      Explain                       |
++----------------------------------------------------+
+|               columns.types string:date:string:string:string:int:decimal(12,2):decimal(14,2) |
+|               field.delim ,                        |
+|               file.inputformat org.apache.hadoop.mapred.TextInputFormat |
+|               file.outputformat org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|               location hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=7 |
+|               name retail_dw.sales_partitioned     |
+|               numFiles 1                           |
+|               partition_columns region/sales_year/sales_month |
+|               partition_columns.types string:int:int |
+|               serialization.ddl struct sales_partitioned { string transaction_id, date sale_date, string store_id, string product_id, string category, i32 quantity, decimal(12,2) unit_price, decimal(14,2) sales_amount} |
+|               serialization.format ,               |
+|               serialization.lib org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|               totalSize 26110                      |
+|               transient_lastDdlTime 1792740235     |
+|             serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|                                                    |
+|               input format: org.apache.hadoop.mapred.TextInputFormat |
+|               output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|               properties:                          |
+|                 EXTERNAL TRUE                      |
+|                 bucket_count -1                    |
+|                 column.name.delimiter ,            |
+|                 columns transaction_id,sale_date,store_id,product_id,category,quantity,unit_price,sales_amount |
+|                 columns.comments                   |
+|                 columns.types string:date:string:string:string:int:decimal(12,2):decimal(14,2) |
+|                 field.delim ,                      |
+|                 file.inputformat org.apache.hadoop.mapred.TextInputFormat |
+|                 file.outputformat org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|                 location hdfs://namenode:8020/retail/warehouse/sales |
+|                 name retail_dw.sales_partitioned   |
+|                 partition_columns region/sales_year/sales_month |
+|                 partition_columns.types string:int:int |
+|                 serialization.ddl struct sales_partitioned { string transaction_id, date sale_date, string store_id, string product_id, string category, i32 quantity, decimal(12,2) unit_price, decimal(14,2) sales_amount} |
+|                 serialization.format ,             |
+|                 serialization.lib org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|                 transient_lastDdlTime 1792740232   |
+|               serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|               name: retail_dw.sales_partitioned    |
+|             name: retail_dw.sales_partitioned      |
+|         hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=8  |
+|           Partition                                |
+|             base file name: sales_month=8          |
+|             input format: org.apache.hadoop.mapred.TextInputFormat |
+|             output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|             partition values:                      |
+|               region West                          |
+|               sales_month 8                        |
+|               sales_year 2025                      |
+|             properties:                            |
+|               bucket_count -1                      |
+|               column.name.delimiter ,              |
+|               columns transaction_id,sale_date,store_id,product_id,category,quantity,unit_price,sales_amount |
+|               columns.comments                     |
+|               columns.types string:date:string:string:string:int:decimal(12,2):decimal(14,2) |
+|               field.delim ,                        |
+|               file.inputformat org.apache.hadoop.mapred.TextInputFormat |
+|               file.outputformat org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|               location hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=8 |
+|               name retail_dw.sales_partitioned     |
+|               numFiles 1                           |
+|               partition_columns region/sales_year/sales_month |
+|               partition_columns.types string:int:int |
+|               serialization.ddl struct sales_partitioned { string transaction_id, date sale_date, string store_id, string product_id, string category, i32 quantity, decimal(12,2) unit_price, decimal(14,2) sales_amount} |
+|               serialization.format ,               |
+|               serialization.lib org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|               totalSize 25794                      |
+|               transient_lastDdlTime 1792740235     |
+|             serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|                                                    |
+|               input format: org.apache.hadoop.mapred.TextInputFormat |
+|               output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|               properties:                          |
+|                 EXTERNAL TRUE                      |
+|                 bucket_count -1                    |
+|                 column.name.delimiter ,            |
+|                 columns transaction_id,sale_date,store_id,product_id,category,quantity,unit_price,sales_amount |
+|                 columns.comments                   |
+|                 columns.types string:date:string:string:string:int:decimal(12,2):decimal(14,2) |
+|                 field.delim ,                      |
+|                 file.inputformat org.apache.hadoop.mapred.TextInputFormat |
+|                 file.outputformat org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat |
+|                 location hdfs://namenode:8020/retail/warehouse/sales |
+|                 name retail_dw.sales_partitioned   |
+|                 partition_columns region/sales_year/sales_month |
+|                 partition_columns.types string:int:int |
+|                 serialization.ddl struct sales_partitioned { string transaction_id, date sale_date, string store_id, string product_id, string category, i32 quantity, decimal(12,2) unit_price, decimal(14,2) sales_amount} |
+|                 serialization.format ,             |
+|                 serialization.lib org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|                 transient_lastDdlTime 1792740232   |
+|               serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|               name: retail_dw.sales_partitioned    |
+|             name: retail_dw.sales_partitioned      |
+|       Truncated Path -> Alias:                     |
+|         hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=6 [sales_partitioned] |
+|         hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=7 [sales_partitioned] |
+|         hdfs://namenode:8020/retail/warehouse/sales/region=West/sales_year=2025/sales_month=8 [sales_partitioned] |
+|       Needs Tagging: false                         |
+|       Reduce Operator Tree:                        |
+|         Group By Operator                          |
+|           aggregations: sum(VALUE._col0)           |
++----------------------------------------------------+
+|                      Explain                       |
++----------------------------------------------------+
+|           mode: mergepartial                       |
+|           outputColumnNames: _col0                 |
+|           Statistics: Num rows: 1 Data size: 112 Basic stats: COMPLETE Column stats: NONE |
+|           File Output Operator                     |
+|             compressed: false                      |
+|             GlobalTableId: 0                       |
+|             directory: file:/tmp/root/d0194571-b2b2-43c1-88d0-c5ae756387c9/hive_2026-10-23_07-24-35_103_1010760544032996241-3/-mr-10001/.hive-staging_hive_2026-10-23_07-24-35_103_1010760544032996241-3/-ext-10002 |
+|             NumFilesPerFileSink: 1                 |
+|             Statistics: Num rows: 1 Data size: 112 Basic stats: COMPLETE Column stats: NONE |
+|             Stats Publishing Key Prefix: file:/tmp/root/d0194571-b2b2-43c1-88d0-c5ae756387c9/hive_2026-10-23_07-24-35_103_1010760544032996241-3/-mr-10001/.hive-staging_hive_2026-10-23_07-24-35_103_1010760544032996241-3/-ext-10002/ |
+|             table:                                 |
+|                 input format: org.apache.hadoop.mapred.SequenceFileInputFormat |
+|                 output format: org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat |
+|                 properties:                        |
+|                   columns _col0                    |
+|                   columns.types decimal(24,2)      |
+|                   escape.delim \                   |
+|                   hive.serialization.extend.additional.nesting.levels true |
+|                   serialization.escape.crlf true   |
+|                   serialization.format 1           |
+|                   serialization.lib org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|                 serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe |
+|             TotalFiles: 1                          |
+|             GatherStats: false                     |
+|             MultiFileSpray: false                  |
+|                                                    |
+|   Stage: Stage-0                                   |
+|     Fetch Operator                                 |
+|       limit: -1                                    |
+|       Processor Tree:                              |
+|         ListSink                                   |
+|                                                    |
++----------------------------------------------------+
+0: jdbc:hive2://localhost:10000> 
+0: jdbc:hive2://localhost:10000> 

@@ -1,0 +1,611 @@
+transaction_id,sale_date,region,store_id,product_id,category,quantity,unit_price,sales_amount,reject_reason
+T00000401,,North,S04,P014,Grocery,7,3.97,27.79,missing_value
+T00000655,2024-02-07,,S08,P038,Sports,3,190.13,570.39,missing_value
+T00000665,2025-06-07,South,S07,P025,Misc,2,239.65,479.30,unexpected_category
+T00000681,2024-10-05,South,S08,P041,Sports,abc,214.92,429.84,invalid_quantity
+T00000713,2025-03-10,North,S01,P018,Clothing,abc,71.08,213.24,invalid_quantity
+T00000724,2025-10-01,West,S16,P040,Sports,abc,178.28,356.56,invalid_quantity
+T00000960,2024-07-04,South,S07,P040,Sports,2,0,356.56,invalid_price
+T00000966,2025-10-17,North,S02,P025,Home & Kitchen,,239.65,479.30,missing_value
+T00001102,2025-01-13,North,S04,P020,Clothing,0,11.25,11.25,invalid_quantity
+T00001298,2025-03-12,West,S14,P033,Beauty,2.5,44.75,44.75,invalid_quantity
+T00001306,2024-05-12,Central,S19,P010,Grocery,2.5,1.28,8.96,invalid_quantity
+T00001350,2024-05-09,West,S15,P009,Grocery,5,-4.99,34.55,invalid_price
+T00001466,2024-08-09,East,S10,P025,Home & Kitchen,-3,239.65,479.30,invalid_quantity
+T00001509,2025-12-18,Central,S17,P002,Electronics,0,59.46,59.46,invalid_quantity
+T00001557,2024-09-01,South,S08,P032,,1,59.46,59.46,missing_value
+T00001627,31/31/2024,South,S07,P028,Home & Kitchen,1,31.41,31.41,invalid_date
+T00001681,2024-11-28,Central,S19,P029,Beauty,2.5,68.41,136.82,invalid_quantity
+T00001783,2025-12-02,South,S06,P035,Beauty,5,,155.65,missing_value
+T00001835,2024-12-31,Mars,S17,P034,Beauty,2,77.96,155.92,unexpected_region
+T00001882,2025-12-21,North,S02,P022,Home & Kitchen,abc,176.95,353.90,invalid_quantity
+T00001991,2025-12-13,North,S03,P005,Misc,1,705.65,705.65,unexpected_category
+T00002108,2025-11-25,North,S01,P006,Misc,3,620.35,1861.05,unexpected_category
+T00002124,2025-11-10,North,S02,P010,Grocery,2.5,1.42,8.52,invalid_quantity
+T00002134,2025-10-03,South,S07,P008,Grocery,2.5,2.22,4.44,invalid_quantity
+T00002313,2024-12-10,South,S08,P026,Home & Kitchen,2,-4.99,187.86,invalid_price
+T00002493,2024-11-05,Central,S20,P035,Beauty,2.5,31.13,124.52,invalid_quantity
+T00002532,2024-11-29,West,S16,P039,Misc,1,260.17,260.17,unexpected_category
+T00002663,2025-11-13,Central,S19,P039,Misc,1,273.18,273.18,unexpected_category
+T00002874,2025-08-17,,S05,P029,Beauty,2,61.57,123.14,missing_value
+T00002882,2024-09-12,South,S05,P007,Electronics,0,806.74,2420.22,invalid_quantity
+T00003074,2025-11-06,Mars,S14,P004,Electronics,2,216.68,433.36,unexpected_region
+T00003188,2025-02-30,East,S12,P036,Sports,1,170.99,170.99,invalid_date
+T00003349,2025-06-04,North,S04,,Sports,2,23.94,47.88,missing_value
+T00003398,2024-11-09,South,,P001,Electronics,1,588.10,588.10,missing_value
+T00003805,2024-03-12,Central,S18,P027,Misc,1,27.40,27.40,unexpected_category
+T00003813,2025-03-09,Central,S19,P042,Misc,3,23.94,71.82,unexpected_category
+T00003860,2024-06-02,West,S16,P014,Grocery,-3,3.97,39.70,invalid_quantity
+T00003953,2024-13-45,East,S12,P013,Grocery,8,1.23,9.84,invalid_date
+T00003978,2025-05-23,,S10,P038,Sports,1,199.64,199.64,missing_value
+T00004013,2025-11-26,West,S15,P006,Electronics,,620.35,620.35,missing_value
+T00004203,2024-06-21,Central,S19,P041,Sports,2.5,204.17,204.17,invalid_quantity
+T00004207,2024-13-45,Central,S20,P017,Clothing,2,34.25,68.50,invalid_date
+T00004620,2025-02-30,Central,S18,P012,Grocery,1,8.07,8.07,invalid_date
+T00004723,2025-03-02,East,S11,P003,Electronics,0,272.90,818.70,invalid_quantity
+T00004821,,East,S12,P032,Beauty,1,59.46,59.46,missing_value
+T00004949,2024-01-23,North,S02,P027,Home & Kitchen,-3,30.44,121.76,invalid_quantity
+T00005076,2024-04-28,South,S05,P038,Sports,2.5,190.13,380.26,invalid_quantity
+T00005319,2024-10-16,Central,S18,P028,Home & Kitchen,2.5,31.41,94.23,invalid_quantity
+T00005375,2025-12-08,Mars,S15,P025,Home & Kitchen,1,239.65,239.65,unexpected_region
+T00005501,2024-06-01,West,S16,P005,Misc,1,604.85,604.85,unexpected_category
+T00005640,2025-01-15,North,S02,P016,Clothing,abc,69.94,139.88,invalid_quantity
+T00005730,2024-10-16,Mars,S01,P012,Grocery,8,8.47,67.76,unexpected_region
+T00005765,2024-03-01,Mars,S16,P020,Clothing,3,11.25,33.75,unexpected_region
+T00005781,31/31/2024,East,S12,P006,Electronics,1,620.35,620.35,invalid_date
+T00005800,2024-09-24,East,S11,P026,Home & Kitchen,-3,93.93,187.86,invalid_quantity
+T00005947,2024-06-09,North,S04,P016,Clothing,,69.94,69.94,missing_value
+T00006057,2024-05-03,Mars,S16,P008,Grocery,4,2.22,8.88,unexpected_region
+T00006164,2025-12-18,Mars,S20,P039,Sports,2,234.15,468.30,unexpected_region
+T00006291,2025-12-14,West,S14,P033,Beauty,,44.75,44.75,missing_value
+T00006305,2024-05-07,Mars,S12,P024,Home & Kitchen,2,41.07,82.14,unexpected_region
+T00006610,2024-13-45,North,S03,P030,Beauty,4,49.88,199.52,invalid_date
+T00006687,2025-06-19,Central,S20,P039,Sports,2,-4.99,546.36,invalid_price
+T00006708,2024-05-16,North,S02,P042,Sports,abc,23.94,47.88,invalid_quantity
+T00006742,2025-01-19,Central,S20,P033,Beauty,-3,46.99,140.97,invalid_quantity
+T00006877,2024-01-08,Central,S19,P033,Beauty,-3,44.75,44.75,invalid_quantity
+T00006915,2025-05-06,Central,S18,P015,Clothing,,81.49,162.98,missing_value
+T00007089,2025-02-30,West,S15,P030,Beauty,1,49.88,49.88,invalid_date
+T00007099,2025-08-25,East,S09,P027,Home & Kitchen,4,0,121.76,invalid_price
+T00007105,2025-12-16,West,S14,P007,,3,847.08,2541.24,missing_value
+T00007167,2025-09-29,South,S06,P025,Home & Kitchen,2,0,479.30,invalid_price
+T00007185,2024-10-26,South,S05,P041,Sports,3,0,677.01,invalid_price
+T00007310,2025-03-26,,S03,P004,Electronics,1,228.08,228.08,missing_value
+T00007362,2025-07-20,East,S11,P027,Home & Kitchen,-3,30.44,60.88,invalid_quantity
+T00007455,2024-11-06,East,S09,P005,Misc,3,672.05,2016.15,unexpected_category
+T00007478,2025-08-25,South,S07,P040,Sports,2.5,187.19,374.38,invalid_quantity
+T00007502,2025-02-30,West,S13,P010,Grocery,2,1.35,2.70,invalid_date
+T00007629,,East,S10,P041,Sports,1,225.67,225.67,missing_value
+T00007835,2025-04-12,Mars,S11,P009,Grocery,5,6.56,32.80,unexpected_region
+T00008057,2025-04-16,South,S07,P029,Beauty,-3,64.99,64.99,invalid_quantity
+T00008118,2024-06-30,Central,S20,P001,Electronics,2,-4.99,1176.20,invalid_price
+T00008132,2024-10-10,West,S16,P026,Misc,3,89.46,268.38,unexpected_category
+T00008155,2024-07-06,East,S10,P041,Misc,1,204.17,204.17,unexpected_category
+T00008161,2025-06-11,North,S01,P039,Sports,,247.16,247.16,missing_value
+T00008189,2025-10-21,North,S04,P020,Clothing,-3,10.71,10.71,invalid_quantity
+T00008477,2025-08-10,East,S10,P023,Home & Kitchen,abc,90.34,90.34,invalid_quantity
+T00008516,2024-07-15,West,S16,P023,Home & Kitchen,3,,271.02,missing_value
+T00008576,31/31/2024,Central,S20,P017,Clothing,1,35.96,35.96,invalid_date
+T00008635,2025-11-26,West,S13,P024,Misc,1,45.63,45.63,unexpected_category
+T00008773,2025-11-29,Central,S17,,Electronics,1,558.70,558.70,missing_value
+T00009133,31/31/2024,Central,S20,P013,Grocery,2,1.44,2.88,invalid_date
+T00009183,2024-13-45,South,S06,P023,Home & Kitchen,3,94.86,284.58,invalid_date
+T00009321,,West,S15,P020,Clothing,4,9.64,38.56,missing_value
+T00009852,2024-04-15,North,S03,,Sports,1,225.78,225.78,missing_value
+T00009923,2024-12-31,,S12,P020,Clothing,2,10.71,21.42,missing_value
+T00010097,2024-13-45,South,S05,P018,Clothing,1,67.34,67.34,invalid_date
+T00010131,2024-02-06,West,S15,P036,Sports,abc,153.89,153.89,invalid_quantity
+T00010133,2025-10-18,South,S05,P042,Sports,3,,75.60,missing_value
+T00010167,2024-02-12,South,S05,P034,Beauty,5,0,350.80,invalid_price
+T00010225,not_a_date,North,S01,P012,Grocery,6,7.26,43.56,invalid_date
+T00010540,2025-10-21,Central,S19,P021,Misc,4,103.57,414.28,unexpected_category
+T00010731,2025-10-28,Mars,S11,P030,Beauty,4,52.37,209.48,unexpected_region
+T00011027,2025-05-10,North,S01,P035,Beauty,-3,31.13,31.13,invalid_quantity
+T00011074,2025-11-17,East,S09,P032,Beauty,1,-4.99,56.49,invalid_price
+T00011133,2025-02-30,East,S12,P001,Electronics,2,529.29,1058.58,invalid_date
+T00011372,2025-01-13,East,S11,P037,Sports,1,-4.99,238.33,invalid_price
+T00011655,2025-05-20,South,S07,P034,Beauty,,77.96,155.92,missing_value
+T00011702,2025-01-03,West,S15,P036,Sports,abc,170.99,170.99,invalid_quantity
+T00011703,2024-13-45,West,S14,P008,Grocery,8,2.11,16.88,invalid_date
+T00011896,2024-13-45,East,S10,P022,Home & Kitchen,1,176.95,176.95,invalid_date
+T00011938,not_a_date,North,S04,P024,Home & Kitchen,2,45.63,91.26,invalid_date
+T00012177,2024-06-13,East,S10,,Grocery,1,3.59,3.59,missing_value
+T00012209,2025-11-27,West,S15,P018,Clothing,-3,71.08,142.16,invalid_quantity
+T00012243,2024-12-12,South,S08,P020,Clothing,2,-4.99,21.42,invalid_price
+T00012245,2024-01-23,,S19,P029,Beauty,1,68.41,68.41,missing_value
+T00012305,2025-03-24,East,S11,P037,,1,238.33,238.33,missing_value
+T00012307,2025-05-05,East,S10,,Beauty,1,32.77,32.77,missing_value
+T00012320,31/31/2024,South,S07,P032,Beauty,3,56.49,169.47,invalid_date
+T00012467,2024-05-07,West,S15,P010,Grocery,9,abc,12.78,invalid_price
+T00012911,2025-05-16,Mars,S01,P006,Electronics,1,620.35,620.35,unexpected_region
+T00012940,2024-13-45,East,S12,P038,Sports,3,190.13,570.39,invalid_date
+T00013025,2024-09-08,Central,S17,P023,Misc,2,90.34,180.68,unexpected_category
+T00013088,2025-03-01,South,S07,P003,Electronics,,272.90,272.90,missing_value
+T00013174,2024-12-05,Central,,P033,Beauty,1,40.27,40.27,missing_value
+T00013266,2024-11-01,East,S09,P032,Beauty,-3,59.46,237.84,invalid_quantity
+T00013368,2025-11-21,Central,S19,P009,Grocery,2.5,6.91,34.55,invalid_quantity
+T00013599,2024-04-04,East,S11,P031,Beauty,,58.81,117.62,missing_value
+T00013612,2025-02-04,Mars,S01,P004,Electronics,2,239.48,478.96,unexpected_region
+T00013812,2024-13-45,West,S14,P020,Clothing,4,10.71,42.84,invalid_date
+T00013831,2024-03-19,East,S09,P038,Misc,3,180.62,541.86,unexpected_category
+T00013995,2024-13-45,East,S11,P005,Electronics,1,705.65,705.65,invalid_date
+T00014005,31/31/2024,Central,S17,P028,Home & Kitchen,2,31.41,62.82,invalid_date
+T00014183,2024-12-04,Central,S20,P010,Grocery,0,1.42,4.26,invalid_quantity
+T00014191,2025-01-04,Central,S20,,Home & Kitchen,1,90.34,90.34,missing_value
+T00014388,2025-11-08,East,S10,,Electronics,1,672.05,672.05,missing_value
+T00014393,,East,S09,P017,Clothing,1,32.54,32.54,missing_value
+T00014539,2025-09-11,West,S16,P007,Electronics,2,-4.99,1613.48,invalid_price
+T00014545,2025-08-24,South,S06,P025,Home & Kitchen,2,,479.30,missing_value
+T00014634,2024-03-02,West,,P020,Clothing,1,11.25,11.25,missing_value
+T00014713,2024-05-07,East,S12,P034,Beauty,-3,77.96,311.84,invalid_quantity
+T00014737,2025-08-06,East,S11,P007,,2,806.74,1613.48,missing_value
+T00014904,2025-08-24,Mars,S06,P014,Grocery,4,3.78,15.12,unexpected_region
+T00015000,2025-08-02,East,S09,P039,Misc,1,260.17,260.17,unexpected_category
+T00015082,2025-12-30,North,S01,P022,Misc,2,176.95,353.90,unexpected_category
+T00015151,2024-09-26,Central,S20,P010,Grocery,-3,1.42,5.68,invalid_quantity
+T00015163,2024-13-45,Central,S20,P004,Electronics,2,239.48,478.96,invalid_date
+T00015298,2025-09-25,North,,P021,Clothing,2,93.71,187.42,missing_value
+T00015500,2024-06-02,Central,S19,P042,Sports,,22.68,22.68,missing_value
+T00015508,2024-13-45,Central,S17,P009,Grocery,1,7.26,7.26,invalid_date
+T00015595,2025-12-04,Central,S18,P038,Misc,2,199.64,399.28,unexpected_category
+T00015648,2024-11-05,West,S15,P006,Misc,1,620.35,620.35,unexpected_category
+T00015723,31/31/2024,West,S16,P032,Beauty,1,53.51,53.51,invalid_date
+T00015806,2024-10-14,Mars,S15,P005,Electronics,3,705.65,2116.95,unexpected_region
+T00015846,2025-11-18,West,S14,P004,Misc,3,216.68,650.04,unexpected_category
+T00015847,2025-08-30,South,S07,P015,Clothing,0,81.49,244.47,invalid_quantity
+T00015896,2025-10-26,East,S09,P013,Grocery,3,,3.90,missing_value
+T00016292,2025-08-22,Mars,S19,P027,Home & Kitchen,2,31.96,63.92,unexpected_region
+T00016332,2025-12-18,South,S08,P017,Clothing,,32.54,97.62,missing_value
+T00016478,2024-01-15,South,S06,P013,Grocery,abc,1.23,8.61,invalid_quantity
+T00016561,2024-11-05,Central,S17,P030,Beauty,abc,49.88,99.76,invalid_quantity
+T00016793,not_a_date,East,S10,P026,Home & Kitchen,3,84.99,254.97,invalid_date
+T00016887,2025-07-17,North,S03,P017,Clothing,1,abc,35.96,invalid_price
+T00016940,2024-01-31,North,S02,P026,Home & Kitchen,3,abc,254.97,invalid_price
+T00016981,2025-04-27,Central,S20,P022,Home & Kitchen,2.5,185.80,557.40,invalid_quantity
+T00017114,,West,S15,P027,Home & Kitchen,2,30.44,60.88,missing_value
+T00017269,2024-08-30,,S14,P023,Home & Kitchen,3,90.34,271.02,missing_value
+T00017466,2024-11-22,South,S05,P028,Home & Kitchen,2,-4.99,65.96,invalid_price
+T00017481,2024-13-45,West,S15,P016,Clothing,4,66.44,265.76,invalid_date
+T00017579,2024-08-10,East,,P038,Sports,2,190.13,380.26,missing_value
+T00017755,2024-11-22,South,S06,P015,Clothing,abc,77.42,309.68,invalid_quantity
+T00017767,2024-02-01,Central,S18,P004,Electronics,abc,216.68,650.04,invalid_quantity
+T00017910,2024-07-10,Central,S19,P042,Sports,1,,25.20,missing_value
+T00018080,2024-03-22,Mars,S02,P015,Clothing,2,81.49,162.98,unexpected_region
+T00018233,2025-10-24,Central,S20,P001,Electronics,-3,588.10,1764.30,invalid_quantity
+T00018512,2025-06-02,North,S04,P009,Grocery,2,0,12.44,invalid_price
+T00018543,2024-09-04,West,S13,P018,Misc,3,74.82,224.46,unexpected_category
+T00018544,2025-03-14,West,S13,P017,Clothing,-3,34.25,102.75,invalid_quantity
+T00018748,2025-12-18,East,,P026,Home & Kitchen,3,89.46,268.38,missing_value
+T00018831,2024-03-18,South,S05,P041,Misc,3,193.43,580.29,unexpected_category
+T00018924,2025-05-23,Central,S20,P021,Clothing,4,-4.99,414.28,invalid_price
+T00018979,2025-11-30,Central,S18,P017,Misc,1,34.25,34.25,unexpected_category
+T00019064,2024-08-10,Central,S17,P038,Sports,1,abc,171.12,invalid_price
+T00019245,2025-02-30,West,S15,P020,Clothing,4,10.17,40.68,invalid_date
+T00019256,2024-01-23,Mars,S03,P037,Sports,3,250.87,752.61,unexpected_region
+T00019428,2024-09-06,North,S01,P019,Misc,3,99.04,297.12,unexpected_category
+T00019479,not_a_date,East,S12,P040,Sports,1,178.28,178.28,invalid_date
+T00019561,2024-08-03,West,S13,P038,Sports,0,171.12,342.24,invalid_quantity
+T00019598,2025-10-09,Central,S20,P017,,4,34.25,137.00,missing_value
+T00019656,2024-02-18,,S11,P005,Electronics,2,672.05,1344.10,missing_value
+T00019751,2024-13-45,West,S13,P014,Grocery,2,3.78,7.56,invalid_date
+T00019836,2024-05-17,North,S03,P027,Home & Kitchen,abc,31.96,63.92,invalid_quantity
+T00019853,31/31/2024,East,S10,P002,Electronics,2,56.63,113.26,invalid_date
+T00020119,2025-07-08,South,S07,P031,Beauty,abc,68.61,274.44,invalid_quantity
+T00020187,2025-11-21,East,,P003,Electronics,1,245.61,245.61,missing_value
+T00020293,2025-02-30,North,S03,P021,Clothing,2,103.57,207.14,invalid_date
+T00020443,2025-10-06,Mars,S10,P020,Clothing,2,10.71,21.42,unexpected_region
+T00020487,2025-05-23,Central,S19,P008,Grocery,-3,2.22,11.10,invalid_quantity
+T00020488,,Central,S19,P015,Clothing,1,81.49,81.49,missing_value
+T00020522,2025-11-02,Central,S19,P027,Home & Kitchen,2.5,27.40,54.80,invalid_quantity
+T00020632,2025-12-27,North,S03,P005,Electronics,1,abc,672.05,invalid_price
+T00020754,2025-09-21,South,S08,P041,Misc,2,214.92,429.84,unexpected_category
+T00020869,2024-07-29,Central,S20,P004,Misc,1,239.48,239.48,unexpected_category
+T00020919,2024-05-03,West,S16,P003,Misc,2,272.90,545.80,unexpected_category
+T00020972,,North,S03,P012,Grocery,1,8.07,8.07,missing_value
+T00020997,2024-02-08,East,S10,P028,Home & Kitchen,3,0,94.23,invalid_price
+T00021024,2025-06-17,West,S13,P015,Clothing,-3,73.34,73.34,invalid_quantity
+T00021048,2025-07-08,South,S05,P037,Sports,-3,250.87,250.87,invalid_quantity
+T00021061,31/31/2024,South,S06,P003,Electronics,2,259.25,518.50,invalid_date
+T00021400,not_a_date,West,S13,P001,Electronics,2,617.50,1235.00,invalid_date
+T00021414,2025-11-06,Mars,S05,P040,Sports,1,178.28,178.28,unexpected_region
+T00021449,2025-06-25,West,S15,P015,Misc,1,73.34,73.34,unexpected_category
+T00021490,2025-05-31,Central,S19,P005,Misc,1,638.45,638.45,unexpected_category
+T00021521,2024-09-21,South,S07,,Sports,1,199.64,199.64,missing_value
+T00021555,2024-06-17,Central,S19,P020,Clothing,0,9.64,9.64,invalid_quantity
+T00021667,2024-12-21,South,S07,P008,Grocery,6,-4.99,13.98,invalid_price
+T00021811,not_a_date,West,S15,P023,Home & Kitchen,4,81.31,325.24,invalid_date
+T00021895,2025-02-02,East,S10,P034,Misc,1,81.86,81.86,unexpected_category
+T00022260,2025-05-17,West,S13,,Grocery,6,1.49,8.94,missing_value
+T00022402,2025-02-30,North,S03,P028,Home & Kitchen,2,28.27,56.54,invalid_date
+T00022637,2025-08-27,,S19,P005,Electronics,1,672.05,672.05,missing_value
+T00022647,,Central,S18,P021,Clothing,1,98.64,98.64,missing_value
+T00022741,2024-04-13,Central,S19,,Electronics,2,672.05,1344.10,missing_value
+T00022834,2025-07-09,Mars,S13,P037,Sports,2,250.87,501.74,unexpected_region
+T00022926,2025-08-09,East,S09,P009,Grocery,1,-4.99,6.56,invalid_price
+T00023080,2024-03-20,Mars,S14,P023,Home & Kitchen,4,85.82,343.28,unexpected_region
+T00023121,2025-09-16,Mars,S08,P004,Electronics,3,205.27,615.81,unexpected_region
+T00023137,2025-11-17,South,S07,P003,Electronics,0,272.90,545.80,invalid_quantity
+T00023360,2025-07-21,East,S12,P028,Home & Kitchen,2.5,31.41,94.23,invalid_quantity
+T00023414,2024-11-04,West,S15,P020,Clothing,2.5,10.71,10.71,invalid_quantity
+T00023417,2024-09-27,West,S13,P013,Grocery,2,abc,2.74,invalid_price
+T00023474,not_a_date,North,S03,P025,Home & Kitchen,3,215.69,647.07,invalid_date
+T00023599,2025-06-23,South,S08,P030,Beauty,4,0,209.48,invalid_price
+T00023910,2025-02-30,Central,S20,P013,Grocery,7,1.37,9.59,invalid_date
+T00023988,2025-12-20,North,S04,P011,Grocery,0,3.65,3.65,invalid_quantity
+T00024426,2025-01-30,East,S11,P025,Home & Kitchen,0,215.69,215.69,invalid_quantity
+T00024526,2024-02-14,West,S16,P027,Home & Kitchen,abc,27.40,27.40,invalid_quantity
+T00024540,not_a_date,Central,S18,P037,Sports,3,263.41,790.23,invalid_date
+T00024571,2025-09-12,Mars,S12,P025,Home & Kitchen,2,227.67,455.34,unexpected_region
+T00024651,2025-08-23,East,,P009,Grocery,1,6.91,6.91,missing_value
+T00024660,2024-05-13,North,S02,P027,Misc,1,28.92,28.92,unexpected_category
+T00024690,2024-01-20,South,S08,P030,Beauty,,49.88,99.76,missing_value
+T00024725,2024-05-03,South,S07,P007,Misc,3,766.40,2299.20,unexpected_category
+T00025150,2024-03-23,Mars,S03,P007,Electronics,2,726.07,1452.14,unexpected_region
+T00025152,2024-03-24,North,S03,P036,Sports,2,,324.88,missing_value
+T00025334,2025-04-27,West,S16,P029,Beauty,3,-4.99,205.23,invalid_price
+T00025406,2024-13-45,East,S09,P010,Grocery,3,1.42,4.26,invalid_date
+T00025504,,North,S04,P029,Beauty,1,61.57,61.57,missing_value
+T00025577,2025-03-26,North,S04,P018,Misc,2,74.82,149.64,unexpected_category
+T00025632,2025-05-17,Central,S17,,Home & Kitchen,3,45.63,136.89,missing_value
+T00025653,2024-03-30,North,S02,P015,Clothing,-3,73.34,73.34,invalid_quantity
+T00025855,2024-10-14,West,S13,P035,Beauty,abc,34.41,68.82,invalid_quantity
+T00026064,2024-12-22,Central,S19,P040,Sports,0,160.45,320.90,invalid_quantity
+T00026073,2025-04-01,West,S14,P029,Beauty,0,68.41,273.64,invalid_quantity
+T00026160,2024-07-10,Central,S17,P036,Misc,1,170.99,170.99,unexpected_category
+T00026388,2024-11-05,East,S11,P026,Home & Kitchen,1,abc,80.51,invalid_price
+T00026630,2025-12-06,North,S01,P013,Grocery,-3,1.37,1.37,invalid_quantity
+T00026673,2024-12-09,North,S03,P035,Beauty,4,-4.99,131.08,invalid_price
+T00026895,2024-12-21,Central,S20,P005,Electronics,abc,672.05,672.05,invalid_quantity
+T00027230,2024-11-19,East,S09,P035,Beauty,1,,32.77,missing_value
+T00027289,2024-11-30,West,S16,P032,Beauty,3,abc,178.38,invalid_price
+T00027394,2024-05-29,Mars,S08,P011,Grocery,4,4.06,16.24,unexpected_region
+T00027470,not_a_date,South,S06,P025,Home & Kitchen,4,239.65,958.60,invalid_date
+T00027617,2024-12-17,Mars,S07,P038,Sports,1,190.13,190.13,unexpected_region
+T00027824,2025-11-14,Central,S19,P002,Electronics,2,0,113.26,invalid_price
+T00027860,2025-12-25,,S07,P013,Grocery,8,1.37,10.96,missing_value
+T00027889,2024-05-29,Central,S20,P017,Clothing,abc,34.25,34.25,invalid_quantity
+T00027970,2025-10-04,Mars,S16,P020,Clothing,2,10.71,21.42,unexpected_region
+T00027998,2025-11-06,North,S02,P011,Grocery,abc,4.06,24.36,invalid_quantity
+T00028035,2024-13-45,Central,S20,P031,Beauty,4,68.61,274.44,invalid_date
+T00028063,2025-08-04,East,S10,P002,Misc,1,50.97,50.97,unexpected_category
+T00028167,2025-04-15,Mars,S14,P034,Beauty,4,77.96,311.84,unexpected_region
+T00028205,2025-07-26,East,S09,P021,Clothing,0,103.57,414.28,invalid_quantity
+T00028343,2024-07-02,South,S06,P014,Grocery,abc,3.59,10.77,invalid_quantity
+T00028374,2025-11-23,North,S01,P015,Clothing,1,abc,73.34,invalid_price
+T00028419,not_a_date,Central,S20,P024,Home & Kitchen,1,45.63,45.63,invalid_date
+T00028478,2024-13-45,South,S07,P007,Electronics,1,806.74,806.74,invalid_date
+T00028531,2025-11-18,Mars,S01,P010,Grocery,4,1.42,5.68,unexpected_region
+T00028629,2025-05-12,East,S12,P024,Home & Kitchen,abc,45.63,45.63,invalid_quantity
+T00028679,2024-03-05,West,S13,P018,Clothing,4,-4.99,299.28,invalid_price
+T00028729,2025-06-30,South,S06,P005,Electronics,-3,638.45,1276.90,invalid_quantity
+T00028861,2025-12-10,South,S05,P026,Home & Kitchen,2.5,89.46,89.46,invalid_quantity
+T00028997,2025-07-25,East,S10,P029,Beauty,-3,68.41,68.41,invalid_quantity
+T00029022,2024-13-45,Central,S17,P040,Sports,1,178.28,178.28,invalid_date
+T00029082,2025-04-11,Central,S19,P019,Clothing,0,94.09,376.36,invalid_quantity
+T00029102,2025-11-05,North,S04,P026,,2,89.46,178.92,missing_value
+T00029118,2024-07-14,,S14,P024,Home & Kitchen,1,43.35,43.35,missing_value
+T00029139,2025-10-15,South,S08,P039,Sports,1,-4.99,273.18,invalid_price
+T00029327,2024-13-45,East,S10,P009,Grocery,5,6.22,31.10,invalid_date
+T00029398,2025-12-01,Central,S20,P003,Electronics,3,0,818.70,invalid_price
+T00029418,,West,S14,P004,Electronics,3,239.48,718.44,missing_value
+T00029529,2025-05-31,Central,S20,P026,Home & Kitchen,abc,80.51,322.04,invalid_quantity
+T00029689,2025-03-27,Mars,S12,P033,Beauty,1,44.75,44.75,unexpected_region
+T00029869,2025-03-13,Mars,S12,P023,Home & Kitchen,1,90.34,90.34,unexpected_region
+T00030037,2025-10-01,West,S13,P006,Electronics,,589.33,1178.66,missing_value
+T00030044,2025-02-30,North,S01,P009,Grocery,1,6.91,6.91,invalid_date
+T00030115,2025-06-02,East,S11,P013,Grocery,abc,1.23,7.38,invalid_quantity
+T00030246,2025-01-08,North,S01,P013,Grocery,abc,1.30,9.10,invalid_quantity
+T00030282,2025-02-30,West,S14,P030,Beauty,1,47.39,47.39,invalid_date
+T00030345,2025-02-30,West,S14,P036,Sports,2,162.44,324.88,invalid_date
+T00030748,2025-12-06,Mars,S03,P019,Clothing,3,99.04,297.12,unexpected_region
+T00031094,2024-08-16,North,S01,P040,Misc,2,178.28,356.56,unexpected_category
+T00031133,2024-12-01,,S14,P027,Home & Kitchen,2,30.44,60.88,missing_value
+T00031384,2024-07-23,Central,S19,P011,Grocery,,3.65,10.95,missing_value
+T00031386,2024-03-07,West,S16,P011,Grocery,4,abc,14.60,invalid_price
+T00031519,,East,S09,P015,Clothing,1,73.34,73.34,missing_value
+T00031572,,West,S14,P004,Electronics,1,239.48,239.48,missing_value
+T00031573,2024-06-01,West,S15,P028,Home & Kitchen,3,abc,94.23,invalid_price
+T00031589,2024-05-26,West,S13,P029,Misc,1,68.41,68.41,unexpected_category
+T00031757,2024-03-22,Mars,S09,P017,Clothing,4,34.25,137.00,unexpected_region
+T00031778,2025-07-14,Central,S19,P001,Electronics,2.5,588.10,588.10,invalid_quantity
+T00031853,31/31/2024,West,S13,P003,Electronics,1,259.25,259.25,invalid_date
+T00031906,31/31/2024,North,S02,P010,Grocery,10,1.35,13.50,invalid_date
+T00031966,2024-03-08,East,S09,P031,Misc,1,65.34,65.34,unexpected_category
+T00032196,2024-10-29,Central,S18,P006,Electronics,abc,651.37,1954.11,invalid_quantity
+T00032402,2025-05-15,West,S13,P019,Clothing,1,0,99.04,invalid_price
+T00032491,2025-03-20,North,S04,P010,Grocery,2,-4.99,2.84,invalid_price
+T00032526,2024-10-23,Central,S18,P017,Clothing,abc,35.96,35.96,invalid_quantity
+T00032683,not_a_date,Central,S19,P006,Electronics,3,620.35,1861.05,invalid_date
+T00032861,2024-03-06,Central,S18,P030,Beauty,1,,49.88,missing_value
+T00032945,2025-12-28,East,S09,P014,Grocery,-3,3.59,3.59,invalid_quantity
+T00032981,2024-06-02,North,S01,P031,Beauty,1,abc,65.34,invalid_price
+T00033008,2025-11-24,North,,P040,Sports,2,169.37,338.74,missing_value
+T00033128,2025-10-29,Central,S17,,Home & Kitchen,1,84.99,84.99,missing_value
+T00033328,2024-06-08,West,S15,P013,Grocery,8,0,10.96,invalid_price
+T00033386,2024-12-06,West,S16,P038,Sports,2.5,180.62,180.62,invalid_quantity
+T00033479,2024-06-15,East,S11,P005,Electronics,2,,1411.30,missing_value
+T00033498,2025-02-27,North,S01,P005,Electronics,2,-4.99,1344.10,invalid_price
+T00033563,2025-07-16,Mars,S19,P006,Electronics,2,558.32,1116.64,unexpected_region
+T00033856,2024-13-45,South,S05,P022,Home & Kitchen,2,185.80,371.60,invalid_date
+T00033926,2025-06-02,South,S08,P034,Beauty,1,-4.99,70.16,invalid_price
+T00033951,not_a_date,West,S13,P038,Sports,1,199.64,199.64,invalid_date
+T00034065,2024-03-08,North,S01,P001,Misc,1,529.29,529.29,unexpected_category
+T00034241,2025-09-04,South,S07,P036,Sports,2.5,179.54,538.62,invalid_quantity
+T00034275,2024-02-28,Central,S19,P040,Sports,-3,178.28,356.56,invalid_quantity
+T00034352,2024-05-21,North,S04,P004,Misc,1,228.08,228.08,unexpected_category
+T00034368,2024-09-09,North,S01,P010,Grocery,2.5,1.28,7.68,invalid_quantity
+T00034434,2024-05-28,Mars,S13,P027,Home & Kitchen,3,31.96,95.88,unexpected_region
+T00034548,2024-13-45,West,S14,P017,Clothing,3,34.25,102.75,invalid_date
+T00035232,,West,S13,P017,Clothing,2,32.54,65.08,missing_value
+T00035273,2025-10-12,West,,P024,Home & Kitchen,1,45.63,45.63,missing_value
+T00035300,2024-02-28,East,S12,P014,Grocery,2.5,3.78,3.78,invalid_quantity
+T00035451,2025-10-04,North,S04,P008,Grocery,4,,8.44,missing_value
+T00035542,2024-10-04,Central,S18,P002,Electronics,3,-4.99,152.91,invalid_price
+T00035588,2025-01-14,East,S11,P034,Beauty,-3,81.86,327.44,invalid_quantity
+T00035771,2024-04-20,Central,S20,P035,Beauty,,32.77,65.54,missing_value
+T00035948,2024-13-45,South,S06,P010,Grocery,9,1.42,12.78,invalid_date
+T00035995,31/31/2024,North,S01,P030,Beauty,4,49.88,199.52,invalid_date
+T00036099,2024-08-17,East,S11,P006,Misc,1,589.33,589.33,unexpected_category
+T00036170,2025-12-27,Central,S17,P005,Electronics,1,abc,672.05,invalid_price
+T00036259,2024-03-28,Mars,S02,P032,Beauty,2,59.46,118.92,unexpected_region
+T00036395,2024-12-06,West,S15,P032,Beauty,-3,59.46,118.92,invalid_quantity
+T00036573,2025-09-21,South,S08,P001,Electronics,-3,588.10,588.10,invalid_quantity
+T00037110,2024-09-11,South,S07,P029,Beauty,4,,287.32,missing_value
+T00037256,2025-02-02,Mars,S14,P025,Home & Kitchen,4,215.69,862.76,unexpected_region
+T00037323,2024-06-27,Central,S18,P006,,1,589.33,589.33,missing_value
+T00037337,2024-03-30,Mars,S19,P031,Beauty,1,65.34,65.34,unexpected_region
+T00037351,2025-05-18,West,S16,P021,Clothing,1,-4.99,93.71,invalid_price
+T00037445,2024-02-07,Central,S20,P026,Misc,2,93.93,187.86,unexpected_category
+T00037574,2025-10-05,West,S16,P005,Electronics,0,604.85,604.85,invalid_quantity
+T00037690,2025-02-30,North,S04,P012,Grocery,7,8.07,56.49,invalid_date
+T00037726,2025-08-02,Central,,P005,Electronics,1,672.05,672.05,missing_value
+T00037893,2024-10-15,South,S08,P034,Beauty,0,74.06,222.18,invalid_quantity
+T00037918,2025-04-11,West,S16,P018,Clothing,abc,67.34,67.34,invalid_quantity
+T00037942,2025-01-17,,S11,P005,Electronics,1,672.05,672.05,missing_value
+T00038301,2025-08-08,North,S04,P009,Misc,3,6.91,20.73,unexpected_category
+T00038478,2025-05-19,West,S16,P006,Misc,2,620.35,1240.70,unexpected_category
+T00038580,2024-13-45,South,S08,P022,Home & Kitchen,3,176.95,530.85,invalid_date
+T00038709,2025-12-08,East,S11,P022,Home & Kitchen,0,159.25,477.75,invalid_quantity
+T00038892,not_a_date,Central,S17,P025,Home & Kitchen,4,239.65,958.60,invalid_date
+T00038990,2025-12-25,Mars,S11,P010,Grocery,5,1.42,7.10,unexpected_region
+T00039254,2024-09-05,Central,S19,P009,Grocery,9,-4.99,62.19,invalid_price
+T00039269,2025-02-17,North,S04,P025,Home & Kitchen,0,251.63,1006.52,invalid_quantity
+T00039278,2025-08-18,West,S13,P004,Electronics,2,-4.99,478.96,invalid_price
+T00039740,not_a_date,West,S14,P024,Home & Kitchen,1,45.63,45.63,invalid_date
+T00039846,2025-06-09,Central,S17,P037,Sports,-3,250.87,501.74,invalid_quantity
+T00039981,2025-02-30,Central,S19,P035,Beauty,2,32.77,65.54,invalid_date
+T00040023,31/31/2024,West,S14,P014,Grocery,2,3.78,7.56,invalid_date
+T00040053,2024-03-04,Mars,S19,P003,Electronics,1,286.55,286.55,unexpected_region
+T00040147,2024-05-17,West,S13,P029,Beauty,-3,68.41,342.05,invalid_quantity
+T00040190,2024-05-01,North,S03,P021,,3,88.78,266.34,missing_value
+T00040234,31/31/2024,North,S03,P001,Electronics,3,558.70,1676.10,invalid_date
+T00040523,2024-06-18,South,S06,P031,Beauty,3,abc,186.21,invalid_price
+T00040793,2024-10-24,East,S12,P010,Grocery,,1.35,5.40,missing_value
+T00040861,2025-10-21,Mars,S19,P021,Clothing,1,88.78,88.78,unexpected_region
+T00040886,2025-06-20,North,S01,P002,Electronics,1,0,56.63,invalid_price
+T00040972,2024-12-02,West,S14,P039,Sports,2.5,273.18,273.18,invalid_quantity
+T00041017,2024-02-01,West,S16,P016,Clothing,2,-4.99,146.88,invalid_price
+T00041149,2025-10-21,Central,S20,P024,Home & Kitchen,abc,47.91,47.91,invalid_quantity
+T00041231,2025-04-06,Central,S19,P007,Electronics,abc,726.07,2178.21,invalid_quantity
+T00041252,2025-03-07,West,S13,P042,Misc,1,26.46,26.46,unexpected_category
+T00041375,2025-10-31,West,S13,P026,Home & Kitchen,1,-4.99,89.46,invalid_price
+T00041700,2025-07-03,West,S14,P034,Beauty,abc,77.96,389.80,invalid_quantity
+T00041776,2025-02-30,North,S02,P028,Home & Kitchen,2,31.41,62.82,invalid_date
+T00041801,31/31/2024,West,S15,P040,Sports,1,178.28,178.28,invalid_date
+T00041893,2024-13-45,Central,S20,P019,Clothing,3,99.04,297.12,invalid_date
+T00041968,2024-12-08,South,S07,P008,Grocery,3,,6.00,missing_value
+T00042075,not_a_date,Central,S17,P004,Electronics,2,228.08,456.16,invalid_date
+T00042215,2025-04-03,Central,S18,P030,Beauty,abc,49.88,49.88,invalid_quantity
+T00042240,2024-12-16,Mars,S10,P001,Electronics,1,588.10,588.10,unexpected_region
+T00042359,2025-02-30,East,S11,P003,Electronics,3,272.90,818.70,invalid_date
+T00042411,2025-07-01,Mars,S05,P026,Home & Kitchen,3,89.46,268.38,unexpected_region
+T00042436,2025-08-13,East,S10,,Clothing,1,77.42,77.42,missing_value
+T00042646,2025-05-02,North,S02,P013,Grocery,9,0,12.33,invalid_price
+T00042767,2025-02-30,East,S09,P003,Electronics,1,272.90,272.90,invalid_date
+T00042947,2025-07-23,South,S05,P014,Grocery,2.5,3.59,17.95,invalid_quantity
+T00042970,2024-08-31,South,S07,P022,Home & Kitchen,-3,168.10,168.10,invalid_quantity
+T00043050,2025-01-26,South,S05,P022,Home & Kitchen,-3,168.10,336.20,invalid_quantity
+T00043099,2025-05-17,Mars,S20,P033,Beauty,2,44.75,89.50,unexpected_region
+T00043324,2024-03-16,West,S15,P025,Home & Kitchen,2,-4.99,455.34,invalid_price
+T00043494,2024-11-16,Central,S17,P017,Clothing,2.5,34.25,102.75,invalid_quantity
+T00043673,2024-03-02,North,S01,P017,Clothing,abc,32.54,65.08,invalid_quantity
+T00043808,2025-11-20,West,S13,P026,,1,89.46,89.46,missing_value
+T00043887,2025-03-13,South,S06,,Sports,3,25.20,75.60,missing_value
+T00043982,2024-09-11,East,S09,P041,Sports,2,0,429.84,invalid_price
+T00044209,2025-08-21,Mars,S09,P035,Beauty,1,32.77,32.77,unexpected_region
+T00044254,2024-04-10,West,S13,P005,Misc,2,672.05,1344.10,unexpected_category
+T00044372,2024-10-02,East,S10,P038,Sports,-3,180.62,361.24,invalid_quantity
+T00044560,2025-05-17,South,S05,P037,Sports,-3,225.78,225.78,invalid_quantity
+T00045064,31/31/2024,West,S15,P041,Sports,3,193.43,580.29,invalid_date
+T00045312,2025-03-04,South,S06,P022,Home & Kitchen,-3,176.95,353.90,invalid_quantity
+T00045389,2025-08-04,North,S03,P012,Grocery,,8.07,32.28,missing_value
+T00045483,2024-13-45,Central,S17,P021,Clothing,4,93.71,374.84,invalid_date
+T00045608,2024-03-04,East,S12,P007,Misc,1,847.08,847.08,unexpected_category
+T00045636,2025-07-08,East,S12,P023,Misc,3,90.34,271.02,unexpected_category
+T00045761,2024-13-45,West,S13,P012,Grocery,4,7.26,29.04,invalid_date
+T00045827,,South,S07,P035,Beauty,3,32.77,98.31,missing_value
+T00045833,2025-12-01,,S07,P035,Beauty,2,34.41,68.82,missing_value
+T00045844,2024-13-45,West,S15,P036,Sports,2,179.54,359.08,invalid_date
+T00045852,31/31/2024,West,S13,P012,Grocery,4,8.07,32.28,invalid_date
+T00045906,2025-05-08,West,S15,P034,Beauty,2.5,70.16,70.16,invalid_quantity
+T00046094,2024-10-26,Central,,P032,Beauty,2,56.49,112.98,missing_value
+T00046256,2025-11-11,North,S04,P005,Electronics,0,672.05,2016.15,invalid_quantity
+T00046283,,Central,S17,P031,Beauty,1,68.61,68.61,missing_value
+T00046287,2025-11-03,North,S02,P033,Beauty,5,abc,223.75,invalid_price
+T00046641,2025-01-10,Central,S20,P017,Clothing,0,35.96,107.88,invalid_quantity
+T00047081,2024-10-12,Mars,S13,P027,Home & Kitchen,2,30.44,60.88,unexpected_region
+T00047275,2025-03-02,Central,S20,P005,Electronics,2,abc,1344.10,invalid_price
+T00047362,2025-10-18,South,S05,P027,Home & Kitchen,1,,30.44,missing_value
+T00047398,2025-04-10,Central,S20,P031,Beauty,2.5,68.61,137.22,invalid_quantity
+T00047436,2025-02-30,East,S10,P013,Grocery,2,1.37,2.74,invalid_date
+T00047598,31/31/2024,North,S02,P013,Grocery,3,1.37,4.11,invalid_date
+T00047816,2024-05-31,North,S03,P039,,1,260.17,260.17,missing_value
+T00047844,2024-13-45,East,S09,P001,Electronics,1,617.50,617.50,invalid_date
+T00047888,2024-01-03,Mars,S07,P008,Grocery,4,2.22,8.88,unexpected_region
+T00047921,2024-11-15,Central,S19,P035,Misc,4,34.41,137.64,unexpected_category
+T00047931,2025-07-13,West,S16,P006,Electronics,abc,589.33,589.33,invalid_quantity
+T00047999,2024-08-12,West,S15,P038,Sports,1,abc,190.13,invalid_price
+T00048211,2025-10-21,North,S02,P034,Beauty,0,77.96,155.92,invalid_quantity
+T00048344,,West,S16,P024,Home & Kitchen,2,45.63,91.26,missing_value
+T00048379,2025-09-05,Central,S18,P040,Sports,2.5,187.19,187.19,invalid_quantity
+T00048493,2025-01-04,East,S12,P027,Home & Kitchen,0,30.44,121.76,invalid_quantity
+T00048517,2025-02-05,Mars,S12,P016,Clothing,1,62.95,62.95,unexpected_region
+T00048539,2024-03-30,North,S02,P041,Misc,1,225.67,225.67,unexpected_category
+T00048863,31/31/2024,West,S13,P036,Sports,1,162.44,162.44,invalid_date
+T00048881,2024-07-06,Mars,S15,P018,Clothing,3,74.82,224.46,unexpected_region
+T00048885,2025-05-19,Central,S19,P023,Home & Kitchen,2,abc,171.64,invalid_price
+T00048933,2025-10-06,East,S09,P024,,1,45.63,45.63,missing_value
+T00049298,2025-10-26,North,S03,P014,Grocery,,3.40,6.80,missing_value
+T00049407,2024-11-27,Central,S17,P022,Home & Kitchen,3,abc,504.30,invalid_price
+T00049449,2025-01-06,South,S05,P031,Beauty,abc,65.34,261.36,invalid_quantity
+T00049588,2024-08-04,Mars,S10,P021,Clothing,3,88.78,266.34,unexpected_region
+T00002527,2025-05-22,West,S14,P022,Home & Kitchen,1,168.10,168.10,duplicate_transaction_id
+T00018749,2024-10-13,North,S01,P009,Grocery,7,6.91,48.37,duplicate_transaction_id
+T00045628,2025-12-29,Central,S18,P005,Electronics,1,604.85,604.85,duplicate_transaction_id
+T00049984,2024-05-04,West,S14,P025,Home & Kitchen,2,215.69,431.38,duplicate_transaction_id
+T00009433,2024-08-17,West,S13,P017,Clothing,1,30.82,30.82,duplicate_transaction_id
+T00030313,2025-11-23,South,S07,P002,Electronics,2,56.63,113.26,duplicate_transaction_id
+T00024241,2025-08-31,East,S10,P014,Grocery,4,3.78,15.12,duplicate_transaction_id
+T00044018,2024-01-19,South,S07,P012,Grocery,10,7.26,72.60,duplicate_transaction_id
+T00045773,2024-05-01,South,S07,P014,Grocery,2,3.97,7.94,duplicate_transaction_id
+T00006311,2025-12-08,South,S05,P040,Sports,1,178.28,178.28,duplicate_transaction_id
+T00029701,2025-09-26,West,S14,P014,Grocery,3,3.78,11.34,duplicate_transaction_id
+T00039244,2025-08-17,Central,S20,P002,Electronics,1,56.63,56.63,duplicate_transaction_id
+T00032655,2024-04-20,East,S12,P022,Home & Kitchen,3,168.10,504.30,duplicate_transaction_id
+T00039911,2025-04-30,South,S07,P022,Home & Kitchen,3,176.95,530.85,duplicate_transaction_id
+T00001256,2025-10-07,South,S08,P031,Beauty,5,62.07,310.35,duplicate_transaction_id
+T00033691,2024-05-07,North,S03,P025,Home & Kitchen,1,215.69,215.69,duplicate_transaction_id
+T00028338,2025-04-23,Central,S19,P015,Clothing,4,73.34,293.36,duplicate_transaction_id
+T00037790,2024-07-14,South,S05,P025,Home & Kitchen,3,239.65,718.95,duplicate_transaction_id
+T00024404,2025-01-18,East,S11,P031,Beauty,3,65.34,196.02,duplicate_transaction_id
+T00040928,2024-12-10,North,S03,P012,Grocery,2,8.07,16.14,duplicate_transaction_id
+T00035848,2025-09-15,West,S15,P007,Electronics,1,766.40,766.40,duplicate_transaction_id
+T00049501,2025-08-15,North,S01,P040,Sports,1,160.45,160.45,duplicate_transaction_id
+T00028448,2024-06-04,South,S05,P023,Home & Kitchen,1,81.31,81.31,duplicate_transaction_id
+T00025817,2024-04-06,West,S14,P008,Grocery,4,2.33,9.32,duplicate_transaction_id
+T00011547,2025-09-04,North,S02,P036,Sports,2,170.99,341.98,duplicate_transaction_id
+T00003783,2024-01-05,East,S12,P005,Electronics,1,705.65,705.65,duplicate_transaction_id
+T00007033,2025-04-30,East,S11,P007,Electronics,2,806.74,1613.48,duplicate_transaction_id
+T00008163,2024-05-12,Central,S20,P007,Electronics,1,806.74,806.74,duplicate_transaction_id
+T00024633,2025-12-27,Central,S18,P032,Beauty,1,53.51,53.51,duplicate_transaction_id
+T00010058,2024-10-18,Central,S19,P001,Electronics,3,588.10,1764.30,duplicate_transaction_id
+T00006275,2024-04-14,Central,S19,P003,Electronics,1,272.90,272.90,duplicate_transaction_id
+T00010527,2024-04-10,North,S02,P027,Home & Kitchen,1,30.44,30.44,duplicate_transaction_id
+T00033583,2025-06-12,West,S15,P035,Beauty,1,31.13,31.13,duplicate_transaction_id
+T00032505,2025-07-25,West,S16,P036,Sports,2,162.44,324.88,duplicate_transaction_id
+T00008435,2025-11-06,West,S13,P024,Home & Kitchen,2,45.63,91.26,duplicate_transaction_id
+T00025353,2025-07-17,South,S05,P014,Grocery,10,3.59,35.90,duplicate_transaction_id
+T00039140,2025-03-17,East,S11,P016,Clothing,3,69.94,209.82,duplicate_transaction_id
+T00033206,2024-12-06,East,S11,P001,Electronics,2,588.10,1176.20,duplicate_transaction_id
+T00017822,2025-08-02,West,S15,P016,Clothing,1,66.44,66.44,duplicate_transaction_id
+T00037694,2024-08-08,West,S15,P024,Home & Kitchen,1,41.07,41.07,duplicate_transaction_id
+T00011918,2025-01-20,Central,S19,P040,Sports,1,169.37,169.37,duplicate_transaction_id
+T00024703,2025-10-31,East,S12,P028,Home & Kitchen,2,29.84,59.68,duplicate_transaction_id
+T00004164,2024-06-07,North,S03,P010,Grocery,2,1.42,2.84,duplicate_transaction_id
+T00003207,2025-10-05,South,S07,P042,Sports,2,23.94,47.88,duplicate_transaction_id
+T00037963,2024-03-11,North,S01,P016,Clothing,4,69.94,279.76,duplicate_transaction_id
+T00004012,2024-05-11,North,S04,P027,Home & Kitchen,4,30.44,121.76,duplicate_transaction_id
+T00012231,2024-09-27,Central,S19,P025,Home & Kitchen,2,239.65,479.30,duplicate_transaction_id
+T00004025,2025-12-06,East,S11,P036,Sports,1,170.99,170.99,duplicate_transaction_id
+T00010862,2024-01-21,Central,S19,P002,Electronics,2,56.63,113.26,duplicate_transaction_id
+T00019410,2024-05-14,West,S14,P006,Electronics,3,620.35,1861.05,duplicate_transaction_id
+T00018041,2025-05-17,South,S07,P033,Beauty,2,42.51,85.02,duplicate_transaction_id
+T00005050,2024-09-21,North,S04,P016,Clothing,1,73.44,73.44,duplicate_transaction_id
+T00034227,2025-08-10,West,S14,P036,Sports,3,170.99,512.97,duplicate_transaction_id
+T00040864,2024-01-12,North,S04,P002,Electronics,3,56.63,169.89,duplicate_transaction_id
+T00006753,2024-10-12,East,S12,P008,Grocery,3,2.00,6.00,duplicate_transaction_id
+T00038298,2024-08-23,North,S01,P042,Sports,3,25.20,75.60,duplicate_transaction_id
+T00042860,2024-10-28,Central,S18,P020,Clothing,1,10.71,10.71,duplicate_transaction_id
+T00042583,2025-12-05,Central,S19,P002,Electronics,2,56.63,113.26,duplicate_transaction_id
+T00044516,2025-03-03,West,S16,P016,Clothing,1,69.94,69.94,duplicate_transaction_id
+T00004001,2024-05-24,East,S10,P005,Electronics,1,672.05,672.05,duplicate_transaction_id
+T00006167,2025-12-21,Central,S18,P034,Beauty,2,81.86,163.72,duplicate_transaction_id
+T00040813,2024-04-20,North,S01,P022,Home & Kitchen,2,176.95,353.90,duplicate_transaction_id
+T00029978,2024-05-13,Central,S19,P024,Home & Kitchen,3,47.91,143.73,duplicate_transaction_id
+T00042412,2024-12-29,East,S12,P032,Beauty,2,53.51,107.02,duplicate_transaction_id
+T00047409,2025-12-10,Central,S19,P037,Sports,2,225.78,451.56,duplicate_transaction_id
+T00021711,2024-11-08,East,S12,P002,Electronics,1,56.63,56.63,duplicate_transaction_id
+T00021639,2024-12-01,East,S12,P037,Sports,2,250.87,501.74,duplicate_transaction_id
+T00034662,2024-11-10,South,S06,P027,Home & Kitchen,3,30.44,91.32,duplicate_transaction_id
+T00043524,2025-10-07,West,S15,P040,Sports,1,178.28,178.28,duplicate_transaction_id
+T00045951,2025-08-02,South,S05,P038,Sports,1,190.13,190.13,duplicate_transaction_id
+T00028757,2024-12-08,South,S06,P001,Electronics,1,588.10,588.10,duplicate_transaction_id
+T00010933,2024-03-09,East,S09,P039,Sports,2,234.15,468.30,duplicate_transaction_id
+T00008280,2024-12-07,East,S10,P026,Home & Kitchen,3,89.46,268.38,duplicate_transaction_id
+T00005253,2024-03-15,South,S06,P027,Home & Kitchen,4,30.44,121.76,duplicate_transaction_id
+T00020942,2025-12-22,North,S01,P041,Sports,1,193.43,193.43,duplicate_transaction_id
+T00003284,2025-07-15,Central,S19,P012,Grocery,8,8.07,64.56,duplicate_transaction_id
+T00038759,2024-01-30,South,S08,P016,Clothing,1,69.94,69.94,duplicate_transaction_id
+T00017572,2024-06-09,West,S16,P030,Beauty,2,49.88,99.76,duplicate_transaction_id
+T00024121,2024-12-08,Central,S17,P004,Electronics,3,228.08,684.24,duplicate_transaction_id
+T00047730,2025-07-11,North,S02,P021,Clothing,3,98.64,295.92,duplicate_transaction_id
+T00012191,2025-09-19,South,S08,P025,Home & Kitchen,1,239.65,239.65,duplicate_transaction_id
+T00044033,2025-03-29,West,S13,P028,Home & Kitchen,2,32.98,65.96,duplicate_transaction_id
+T00039616,2024-12-22,South,S05,P006,Electronics,1,620.35,620.35,duplicate_transaction_id
+T00004611,2025-05-24,West,S13,P042,Sports,1,22.68,22.68,duplicate_transaction_id
+T00036174,2024-01-31,East,S12,P020,Clothing,1,10.71,10.71,duplicate_transaction_id
+T00043428,2025-01-18,South,S06,P002,Electronics,2,59.46,118.92,duplicate_transaction_id
+T00007426,2024-06-29,West,S13,P028,Home & Kitchen,3,32.98,98.94,duplicate_transaction_id
+T00019465,2024-10-21,Central,S17,P039,Sports,1,260.17,260.17,duplicate_transaction_id
+T00032436,2025-06-27,Central,S20,P002,Electronics,3,59.46,178.38,duplicate_transaction_id
+T00047748,2025-09-16,Central,S20,P013,Grocery,2,1.37,2.74,duplicate_transaction_id
+T00023696,2024-04-24,South,S05,P009,Grocery,7,6.91,48.37,duplicate_transaction_id
+T00046870,2025-12-15,East,S11,P031,Beauty,2,65.34,130.68,duplicate_transaction_id
+T00028443,2025-04-26,North,S04,P008,Grocery,4,2.22,8.88,duplicate_transaction_id
+T00002710,2024-11-05,East,S11,P033,Beauty,2,42.51,85.02,duplicate_transaction_id
+T00031003,2024-08-27,South,S05,P041,Sports,1,225.67,225.67,duplicate_transaction_id
+T00027193,2024-12-09,Central,S19,P005,Electronics,3,705.65,2116.95,duplicate_transaction_id
+T00039444,2025-02-14,South,S05,P023,Home & Kitchen,1,90.34,90.34,duplicate_transaction_id
+T00005482,2025-08-27,West,S16,P038,Sports,2,190.13,380.26,duplicate_transaction_id
+T00023470,2025-08-05,North,S02,P022,Home & Kitchen,2,168.10,336.20,duplicate_transaction_id
+T00008334,2025-10-11,South,S07,P041,Sports,2,214.92,429.84,duplicate_transaction_id
+T00042269,2025-11-03,North,S01,P011,Grocery,2,3.86,7.72,duplicate_transaction_id
+T00005652,2024-05-13,North,S02,P015,Clothing,1,81.49,81.49,duplicate_transaction_id
+T00043569,2024-04-30,North,S03,P036,Sports,3,179.54,538.62,duplicate_transaction_id
+T00047915,2025-08-05,East,S10,P033,Beauty,3,44.75,134.25,duplicate_transaction_id
+T00010100,2025-08-23,East,S11,P002,Electronics,1,53.80,53.80,duplicate_transaction_id
+T00037624,2024-12-27,East,S11,P004,Electronics,2,205.27,410.54,duplicate_transaction_id
+T00020154,2025-04-27,East,S10,P008,Grocery,8,2.22,17.76,duplicate_transaction_id
+T00007140,2024-09-25,South,S08,P039,Sports,3,234.15,702.45,duplicate_transaction_id
+T00045225,2025-04-05,West,S16,P033,Beauty,1,44.75,44.75,duplicate_transaction_id
+T00035075,2024-03-29,West,S13,P028,Home & Kitchen,2,28.27,56.54,duplicate_transaction_id
+T00027837,2024-11-17,West,S16,P013,Grocery,3,1.37,4.11,duplicate_transaction_id
+T00029038,2025-10-26,South,S05,P020,Clothing,1,10.71,10.71,duplicate_transaction_id
+T00038479,2024-12-07,West,S15,P029,Beauty,3,68.41,205.23,duplicate_transaction_id
+T00002489,2025-11-29,East,S10,P010,Grocery,3,1.35,4.05,duplicate_transaction_id
+T00009606,2025-12-10,South,S06,P032,Beauty,3,59.46,178.38,duplicate_transaction_id
+T00000166,2025-10-13,South,S05,P039,Sports,3,234.15,702.45,duplicate_transaction_id
+T00006931,2024-10-20,South,S08,P020,Clothing,1,10.71,10.71,duplicate_transaction_id
+T00008148,2025-07-02,West,S13,P011,Grocery,8,3.65,29.20,duplicate_transaction_id
+T00008260,2024-06-30,South,S06,P001,Electronics,3,529.29,1587.87,duplicate_transaction_id
+T00048143,2024-10-24,West,S13,P011,Grocery,6,4.06,24.36,duplicate_transaction_id
+T00001118,2025-01-24,North,S03,P008,Grocery,1,2.22,2.22,duplicate_transaction_id
+T00022128,2024-08-16,West,S14,P010,Grocery,3,1.42,4.26,duplicate_transaction_id
+T00007769,2024-02-05,West,S15,P005,Electronics,3,705.65,2116.95,duplicate_transaction_id
+T00047008,2024-04-14,Central,S19,P034,Beauty,2,70.16,140.32,duplicate_transaction_id
+T00034888,2024-08-17,Central,S18,P017,Clothing,4,34.25,137.00,duplicate_transaction_id
+T00032645,2024-12-23,West,S13,P020,Clothing,1,10.17,10.17,duplicate_transaction_id
+T00016973,2025-08-07,East,S12,P034,Beauty,2,77.96,155.92,duplicate_transaction_id
+T00049430,2024-10-08,East,S12,P029,Beauty,1,68.41,68.41,duplicate_transaction_id
+T00046074,2024-07-12,North,S01,P006,Electronics,2,620.35,1240.70,duplicate_transaction_id
+T00029900,2025-03-14,North,S04,P015,Clothing,3,81.49,244.47,duplicate_transaction_id
+T00022283,2024-10-02,Central,S20,P033,Beauty,4,42.51,170.04,duplicate_transaction_id
+T00025271,2025-02-07,West,S16,P010,Grocery,9,1.42,12.78,duplicate_transaction_id
+T00005712,2024-03-05,West,S13,P026,Home & Kitchen,1,89.46,89.46,duplicate_transaction_id
+T00046686,2025-05-19,East,S11,P008,Grocery,4,2.33,9.32,duplicate_transaction_id
+T00002190,2025-01-11,Central,S19,P025,Home & Kitchen,4,239.65,958.60,duplicate_transaction_id
+T00006092,2024-10-11,Central,S19,P001,Electronics,1,529.29,529.29,duplicate_transaction_id
+T00047038,2025-11-11,North,S03,P003,Electronics,2,286.55,573.10,duplicate_transaction_id
+T00013507,2024-07-02,West,S13,P042,Sports,1,25.20,25.20,duplicate_transaction_id
+T00044061,2024-06-01,West,S16,P008,Grocery,3,2.11,6.33,duplicate_transaction_id
+T00026520,2025-06-21,Central,S20,P039,Sports,1,273.18,273.18,duplicate_transaction_id
+T00012714,2024-12-20,East,S10,P015,Clothing,1,81.49,81.49,duplicate_transaction_id
+T00044896,2025-08-28,East,S11,P012,Grocery,4,7.26,29.04,duplicate_transaction_id
+T00037725,2024-08-20,North,S01,P008,Grocery,2,2.00,4.00,duplicate_transaction_id
+T00026442,2025-07-03,South,S06,P034,Beauty,3,77.96,233.88,duplicate_transaction_id
+T00017061,2025-11-13,South,S08,P038,Sports,2,190.13,380.26,duplicate_transaction_id
+T00038945,2025-04-09,South,S07,P035,Beauty,2,31.13,62.26,duplicate_transaction_id
+T00038426,2024-08-05,South,S06,P011,Grocery,1,4.06,4.06,duplicate_transaction_id
+T00026785,2024-12-03,West,S16,P041,Sports,1,214.92,214.92,duplicate_transaction_id
+T00021454,2024-01-27,South,S08,P011,Grocery,4,4.06,16.24,duplicate_transaction_id
+T00026078,2025-08-03,West,S13,P007,Electronics,3,726.07,2178.21,duplicate_transaction_id

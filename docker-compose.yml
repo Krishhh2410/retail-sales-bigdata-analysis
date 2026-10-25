@@ -1,0 +1,63 @@
+# Retail DW cluster: 1 NameNode + 3 DataNodes (HDFS), Hive metastore (Postgres), HiveServer2,
+# and a "spark-client" container that runs PySpark (local[*] inside the container) against
+# HDFS + the Hive metastore. This is ONE NameNode with THREE DataNodes - not three full Hadoop nodes.
+# UNVERIFIED in the authoring environment (no Docker available) - see docs/STATUS.md.
+services:
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
+    container_name: namenode
+    environment:
+      - CLUSTER_NAME=retail-dw
+    env_file: [./config/hadoop-hive.env]
+    volumes: [namenode_data:/hadoop/dfs/name]
+    ports: ["50070:50070"]          # HDFS web UI
+  datanode1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    env_file: [./config/hadoop-hive.env]
+    environment: { SERVICE_PRECONDITION: "namenode:50070" }
+    volumes: [datanode1_data:/hadoop/dfs/data]
+    depends_on: [namenode]
+  datanode2:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    env_file: [./config/hadoop-hive.env]
+    environment: { SERVICE_PRECONDITION: "namenode:50070" }
+    volumes: [datanode2_data:/hadoop/dfs/data]
+    depends_on: [namenode]
+  datanode3:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    env_file: [./config/hadoop-hive.env]
+    environment: { SERVICE_PRECONDITION: "namenode:50070" }
+    volumes: [datanode3_data:/hadoop/dfs/data]
+    depends_on: [namenode]
+  hive-metastore-postgresql:
+    image: bde2020/hive-metastore-postgresql:2.3.0
+    volumes: [metastore_pg:/var/lib/postgresql/data]
+  hive-metastore:
+    image: bde2020/hive:2.3.2-postgresql-metastore
+    env_file: [./config/hadoop-hive.env]
+    command: /opt/hive/bin/hive --service metastore
+    environment:
+      SERVICE_PRECONDITION: "namenode:50070 hive-metastore-postgresql:5432"
+    depends_on: [namenode, hive-metastore-postgresql]
+  hive-server:
+    image: bde2020/hive:2.3.2-postgresql-metastore
+    env_file: [./config/hadoop-hive.env]
+    environment:
+      HIVE_CORE_CONF_javax_jdo_option_ConnectionURL: "jdbc:postgresql://hive-metastore/metastore"
+      SERVICE_PRECONDITION: "hive-metastore:9083"
+    volumes: ["./sql:/sql:ro"]
+    ports: ["10000:10000"]          # HiveServer2 (beeline / JDBC)
+    depends_on: [hive-metastore]
+  spark-client:
+    build: ./docker/spark-client
+    image: retail-dw-spark-client
+    working_dir: /app
+    volumes: [".:/app"]
+    depends_on: [hive-metastore]
+    profiles: ["tools"]             # started on demand: docker compose run --rm spark-client ...
+volumes:
+  namenode_data: {}
+  datanode1_data: {}
+  datanode2_data: {}
+  datanode3_data: {}
+  metastore_pg: {}

@@ -1,0 +1,95 @@
+### DataNode report (expect 'Live datanodes (3)')
+DFS Used: 19832832 (18.91 MB)
+Live datanodes (3):
+Name: 172.18.0.7:50010 (retail-sales-data-warehouse-datanode1-1.retail-sales-data-warehouse_default)
+Hostname: 2877cc183b73
+DFS Used: 6610944 (6.30 MB)
+Non DFS Used: 6655463424 (6.20 GB)
+Name: 172.18.0.5:50010 (retail-sales-data-warehouse-datanode2-1.retail-sales-data-warehouse_default)
+Hostname: d7afc1681064
+DFS Used: 6610944 (6.30 MB)
+Non DFS Used: 6655463424 (6.20 GB)
+Name: 172.18.0.4:50010 (retail-sales-data-warehouse-datanode3-1.retail-sales-data-warehouse_default)
+Hostname: 03045222898d
+DFS Used: 6610944 (6.30 MB)
+Non DFS Used: 6655463424 (6.20 GB)
+
+### Safe mode
+Safe mode is OFF
+
+### Directory tree
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/staging
+-rw-r--r--   3 root supergroup    3043178 2026-10-23 07:23 /retail/staging/retail_sales.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=1
+-rw-r--r--   3 root supergroup      20058 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=1/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=10
+-rw-r--r--   3 root supergroup      24887 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=10/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=11
+-rw-r--r--   3 root supergroup      29516 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=11/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=12
+-rw-r--r--   3 root supergroup      36716 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=12/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=2
+-rw-r--r--   3 root supergroup      16150 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=2/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=3
+-rw-r--r--   3 root supergroup      21515 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=3/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=4
+-rw-r--r--   3 root supergroup      22212 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=4/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=5
+-rw-r--r--   3 root supergroup      23200 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=5/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=6
+-rw-r--r--   3 root supergroup      24805 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=6/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=7
+-rw-r--r--   3 root supergroup      22127 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=7/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=8
+-rw-r--r--   3 root supergroup      24133 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=8/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=9
+-rw-r--r--   3 root supergroup      21625 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2024/sales_month=9/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025/sales_month=1
+-rw-r--r--   3 root supergroup      22705 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025/sales_month=1/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025/sales_month=10
+-rw-r--r--   3 root supergroup      27380 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025/sales_month=10/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025/sales_month=11
+-rw-r--r--   3 root supergroup      32636 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025/sales_month=11/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025/sales_month=12
+-rw-r--r--   3 root supergroup      40816 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025/sales_month=12/part-00000.csv
+drwxr-xr-x   - root supergroup          0 2026-10-23 07:23 /retail/warehouse/sales/region=Central/sales_year=2025/sales_month=2
+
+### Space used
+2.9 M  /retail/staging
+2.6 M  /retail/warehouse
+
+### fsck: blocks, replication, DataNode locations for the staging file
+FSCK started by root (auth:SIMPLE) from /172.18.0.3 for path /retail/staging/retail_sales.csv at Fri Oct 23 07:23:40 UTC 2026
+/retail/staging/retail_sales.csv 3043178 bytes, 1 block(s):  OK
+0. BP-1313812331-172.18.0.3-1792687168766:blk_1073741946_1122 len=3043178 repl=3 [DatanodeInfoWithStorage[172.18.0.7:50010,DS-c44fe80d-b045-41a9-89a6-d1dc581f220f,DISK], DatanodeInfoWithStorage[172.18.0.5:50010,DS-a8053230-c6a5-4d95-8d6c-d7a191243521,DISK], DatanodeInfoWithStorage[172.18.0.4:50010,DS-68648027-a735-464d-b8da-3d0409863426,DISK]]
+
+Status: HEALTHY
+ Total size:	3043178 B
+ Total dirs:	0
+ Total files:	1
+ Total symlinks:		0
+ Total blocks (validated):	1 (avg. block size 3043178 B)
+ Minimally replicated blocks:	1 (100.0 %)
+ Over-replicated blocks:	0 (0.0 %)
+ Under-replicated blocks:	0 (0.0 %)
+ Mis-replicated blocks:		0 (0.0 %)
+ Default replication factor:	3
+ Average block replication:	3.0
+ Corrupt blocks:		0
+ Missing replicas:		0 (0.0 %)
+ Number of data-nodes:		3
+ Number of racks:		1
+FSCK ended at Fri Oct 23 07:23:40 UTC 2026 in 1 milliseconds
+
+
+The filesystem under path '/retail/staging/retail_sales.csv' is HEALTHY
+
+### First 3 lines of staged file read back from HDFS
+transaction_id,sale_date,region,store_id,product_id,category,quantity,unit_price,sales_amount
+T00000001,2025-03-13,East,S09,P013,Grocery,1,1.37,1.37
+T00000002,2025-06-15,West,S13,P025,Home & Kitchen,2,215.69,431.38
